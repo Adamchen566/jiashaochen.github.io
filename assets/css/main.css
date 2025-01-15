@@ -1273,3 +1273,49 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* 按钮的基础样式 */
+.btn-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #4caf50, #2e7d32); /* 渐变色 */
+  color: #fff; /* 字体颜色 */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px; /* 圆角 */
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-send svg {
+  margin-left: 10px; /* 图标与文字之间的间距 */
+  transition: transform 0.3s ease;
+}
+
+/* 悬停效果 */
+.btn-send:hover {
+  background: linear-gradient(90deg, #66bb6a, #43a047); /* 更亮的渐变 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 更明显的阴影 */
+}
+
+.btn-send:hover svg {
+  transform: translateX(5px); /* 悬停时箭头向右移动 */
+}
+
+/* 点击效果 */
+.btn-send:active {
+  background: linear-gradient(90deg, #388e3c, #1b5e20); /* 更深的颜色 */
+  transform: scale(0.95); /* 点击时按钮略微缩小 */
+}
+
+/* 禁用状态 */
+.btn-send:disabled {
+  background: #ccc; /* 灰色背景 */
+  cursor: not-allowed; /* 禁用时显示不可点击的指针 */
+  box-shadow: none;
+}
