@@ -33,6 +33,10 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF 文件下载</title>
+
   <!-- =======================================================
   * Authoer Name: Jiashao Chen(Adam)
   * Updated: 12/Dec 2024
@@ -46,6 +50,8 @@
     <div class="language-switcher">
         <button class = 'language' onclick="setLanguage('en')">English</button>
         <button class = 'language' onclick="setLanguage('zh')">简体中文</button>
+        <a class="language" href="assets/Resume for Jiashao Chen.pdf" download="Resume for Jiashao Chen.pdf"><span data-i18n="downloadresume"></span></a>
+
     </div>
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
@@ -103,7 +109,6 @@
   </header>
 
   <main class="main">
-
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
@@ -122,7 +127,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2><span data-i18n="about"></span></h2>
+        <h2><span data-i18n="about"></span>
+        <a class="download" href="assets/Resume for Jiashao Chen.pdf" download="Resume for Jiashao Chen.pdf"><span data-i18n="downloadresume"></span></a>
         <p><span data-i18n="about1"></span></p>
       </div><!-- End Section Title -->
 
@@ -764,6 +770,7 @@
                       <path d="M22 2 15 22 11 13 2 9z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
+                  <a class="download" href="assets/Resume for Jiashao Chen.pdf" download="Resume for Jiashao Chen.pdf"><span data-i18n="downloadresume"></span></a>
                 </div>
               </div>
             </form>

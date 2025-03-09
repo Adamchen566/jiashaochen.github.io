@@ -2,6 +2,7 @@ const translations = {
     en: {
         welcome: "Jiashao's Personal Webpage",
         name: "Jiashao Chen",
+        downloadresume: "Download My Resume",
         home: "Home",
         about: "About",
         resume: "Resume",
@@ -119,6 +120,7 @@ const translations = {
     zh: {
         welcome: "陈佳绍的个人网站",
         name: "陈佳绍",
+        downloadresume: "简历下载",
         home: "首页",
         about: "关于我",
         resume: "简历",
