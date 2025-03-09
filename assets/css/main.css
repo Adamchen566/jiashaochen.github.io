@@ -87,6 +87,16 @@ h6 {
   font-family: var(--heading-font);
 }
 
+.language {
+  margin: 0 10px;
+  background-color: #000000; /* 背景色 */
+  color: rgb(174, 173, 173); /* 文字颜色 */
+  padding: 20px 20px; /* 内边距 */
+  border: none; /* 去掉边框 */
+  border-radius: 5px; /* 圆角 */
+  font-size: 20px; /* 字体大小 */
+  cursor: pointer; /* 鼠标悬停时显示手型 */
+}
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {

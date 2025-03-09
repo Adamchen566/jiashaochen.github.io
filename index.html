@@ -4,9 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Jiashao's Personal Webpage</title>
+  <title id="welcome">Jiashao's Personal Webpage</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+
+  <!-- i18next CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.10/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.3/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -37,7 +41,12 @@
 
 <body class="index-page">
 
+  <button class="scroll-top" title="Go to top"><i class="bi bi-chevron-up"></i></button>
   <header id="header" class="header dark-background d-flex flex-column">
+    <div class="language-switcher">
+        <button class = 'language' onclick="setLanguage('en')">English</button>
+        <button class = 'language' onclick="setLanguage('zh')">简体中文</button>
+    </div>
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
@@ -47,7 +56,7 @@
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Jiashao Chen</h1>
+      <h1 class="sitename"><span data-i18n="name"></span></h1>
     </a>
 
     <div class="social-links text-center">
@@ -65,11 +74,11 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span data-i18n="home"></span></a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i><span data-i18n="about"></span></a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span data-i18n="resume"></span></a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span data-i18n="portfolio"></span></a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span data-i18n="services"></span></a></li>
         <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="#">Dropdown 1</a></li>
@@ -87,7 +96,7 @@
             <li><a href="#">Dropdown 4</a></li>
           </ul>
         </li> -->
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span data-i18n="contact"></span></a></li>
       </ul>
     </nav>
 
@@ -101,7 +110,7 @@
       <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Jiashao Chen</h2>
+        <h2><span data-i18n="name"></span></h2>
         <p>I'm <span class="typed" data-typed-items="Undergraduate Student
           , Software Engineer, Algorithm designer">Undergraduate Student</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
@@ -113,8 +122,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>"For me, programming is not just a career choice but a way to express creativity. I enjoy blending logic and aesthetics to create engaging digital experiences through code."</p>
+        <h2><span data-i18n="about"></span></h2>
+        <p><span data-i18n="about1"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -124,30 +133,30 @@
             <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 content">
-            <h2>Software Engineer &amp; Algorithm Designer.</h2>
+            <h2><span data-i18n="about2"></span></h2>
             <p class="fst-italic py-3">
-              As a student, I am working hard to improve my coding skills and constantly exploring new projects to broaden my horizons.
+              <span data-i18n="about3"></span>
             </p>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>6 Jun 2005</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a href="https://github.com/Adamchen566">Github</a></span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+61 4 6690 0373</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Melbourne, AU</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="Birthday"></span></strong> <span>06/06/2005</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="website"></span></strong> <span><a href="https://github.com/Adamchen566">Github Pages</a></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="phone"></span></strong> <span>+61 4 6690 0373</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="city"></span></strong> <span><span data-i18n="melbourne"></span></span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>19</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Undergraduate</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>xhl566@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="age"></span></strong> <span>19</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="degree"></span></strong> <span><strong><span data-i18n="undergraduate"></span></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="email"></span></strong> <span>xhl566@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="freelance"></span></strong> <span><span data-i18n="available"></span></span></li>
                 </ul>
               </div>
             </div>
             <p class="py-3">
-              "Only at night does loneliness magnify for a person. The sunlight of daytime acts as a curtain that conceals all pain. You cannot venture too far, or you might forget the direction of home; you cannot linger too long, or you might forget why you set out in the first place. Humans are often like this—standing on the mountaintop and yearning for the valley's breeze, yet longing for the mountaintop clouds when they are in the valley." —&#60;Moments We Shared>
+              <span data-i18n="extract1"></span>
             </p>
           </div>
         </div>
@@ -167,7 +176,7 @@
             <div class="stats-item">
               <i class="bi bi-emoji-smile"></i>
               <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Programming Languages Learned</strong> <span>The number of programming languages I can proficiently use</span></p>
+              <br><strong><span style="font-size: 24px;" data-i18n="data1"></span></strong><br><span data-i18n="explain1"></span>
             </div>
           </div><!-- End Stats Item -->
 
@@ -175,7 +184,7 @@
             <div class="stats-item">
               <i class="bi bi-journal-richtext"></i>
               <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Completed Courses</strong> <span>All courses currently completed during the undergraduate period at the university</span></p>
+              <br><strong><span style="font-size: 24px;" data-i18n="data2"></span></strong><br><span data-i18n="explain2"></span>
             </div>
           </div><!-- End Stats Item -->
 
@@ -183,7 +192,7 @@
             <div class="stats-item">
               <i class="bi bi-headset"></i>
               <span data-purecounter-start="0" data-purecounter-end="52" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> <span>Number of all projects completed to date</span></p>
+              <br><strong><span style="font-size: 24px;" data-i18n="data3"></span></strong><br><span data-i18n="explain3"></span>
             </div>
           </div><!-- End Stats Item -->
 
@@ -191,7 +200,7 @@
             <div class="stats-item">
               <i class="bi bi-people"></i>
               <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours of Studying</strong> <span>Total time spent studying computers</span></p>
+              <br><strong><span style="font-size: 24px;" data-i18n="data4"></span></strong><br><span data-i18n="explain4"></span>
             </div>
           </div><!-- End Stats Item -->
 
@@ -206,8 +215,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>"I believe technology is not just a tool but a vital bridge for realizing creativity and solving problems."</p>
+        <h2><span data-i18n="skills"></span></h2>
+        <p><span data-i18n="extract2"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -290,8 +299,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>"Proficient in Python, C and Java, with practical experience in React, Node.js and MySQL. I enjoy finding creative solutions in code while constantly exploring new technologies to improve the efficiency and quality of my projects. Currently, I am learning Linux and Software System to further enhance my development skills."</p>
+        <h2><span data-i18n="resume"></span></h2>
+        <p><span data-i18n="extract3"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -299,11 +308,11 @@
         <div class="row">
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
+            <h3 class="resume-title"><span data-i18n="summary"></span></h3>
 
             <div class="resume-item pb-0">
-              <h4>Introduction</h4>
-              <p><em>"I am an undergraduate student majoring in Computer Science, passionate about software development, front-end technologies, and user experience design. During my academic journey, I have focused on learning algorithms, data structures, and modern development frameworks, while enhancing my hands-on skills through personal projects and team collaborations. I aspire to apply my knowledge to solve real-world problems and aim to become a full-stack developer delivering intuitive and efficient digital solutions."</em></p>
+              <h4><span data-i18n="introduction"></span></h4>
+              <p><em><span data-i18n="extract5"></span></em></p>
               <!-- <ul>
                 <li>Address</li>
                 <li>(123) 456-7891</li>
@@ -311,45 +320,43 @@
               </ul> -->
             </div><!-- Edn Resume Item -->
 
-            <h3 class="resume-title">Education</h3>
+            <h3 class="resume-title"><span data-i18n="education"></span></h3>
             <div class="resume-item">
-              <h4>Master of Information Technology</h4>
+              <h4><span data-i18n="education2"></span></h4>
               <h5>2026-2027</h5>
-              <p><em>University of Melbourne, VIC, AU</em></p>
-              <p>Application in Progress and highly likely to receive an offer.</p>
+              <p><em><span data-i18n="uom"></span></em></p>
+              <p><span data-i18n="mit"></span></p>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>Bachelor of Science &amp; Software System</h4>
+              <h4><span data-i18n="education1"></span></h4>
               <h5>2023-2025</h5>
-              <p><em>University of Melbourne, VIC, AU</em></p>
-              <p>Gained experience in algorithm design, data processing, and software development, including a Java-based taxi simulation project. Proficient in C and Python.</p>
+              <p><em><span data-i18n="uom"></span></em></p>
+              <p><span data-i18n="bsci"></span></p>
             </div><!-- Edn Resume Item -->
 
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
+            <h3 class="resume-title"><span data-i18n="experience"></span></h3>
             <div class="resume-item">
-              <h4>Crawler Game Match Event information to Apple Calendar</h4>
+              <h4><span data-i18n="project1"></span></h4>
               <h5>2023</h5>
               <ul>
-                <li>Collect and collate Valorant Match information on the www.vlr.gg website</li>
-                <li>Use python to crawler and output.ics format files</li>
-                <li>Use Google Drive to host files and make an Apple subscription calendar</li>
-                <li>Finally achieved real-time synchronization of official competition information to Apple Calendar with customizable settings.</li>
+                <li><span data-i18n="project1_1"></span></li>
+                <li><span data-i18n="project1_2"></span></li>
+                <li><span data-i18n="project1_3"></span></li>
+                <li><span data-i18n="project1_4"></span></li>
               </ul>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>Shadow Taxi</h4>
+              <h4><span data-i18n="project2"></span></h4>
               <h5>2024</h5>
-              <p><em>University of Melbourne</em></p>
               <ul>
-                <li>Independent implementation the Taxi game</li>
-                <li>Optimize basic functions</li>
-                <li>Expanded more interesting features and Settings</li>
-                <li>Achieved the highest project score in the class and was selected as an exemplary case study by the instructor.</li>
+                <li><span data-i18n="project2_1"></span></li>
+                <li><span data-i18n="project2_2"></span></li>
+                <li><span data-i18n="project2_3"></span></li>
               </ul>
             </div><!-- Edn Resume Item -->
 
@@ -366,8 +373,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>"Passionate about programming, I also enjoy making games and reading novels, finding inspiration at the intersection of technology and art."</p>
+        <h2><span data-i18n="portfolio"></span></h2>
+        <p><span data-i18n="extract6"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -375,10 +382,10 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-Open-Source">Open Source Projects</li>
-            <li data-filter=".filter-Course">Course Projects</li>
-            <li data-filter=".filter-Work">Works</li>
+            <li data-filter="*" class="filter-active"><span data-i18n="all"></span></li>
+            <li data-filter=".filter-Open-Source"><span data-i18n="opensource"></span></li>
+            <li data-filter=".filter-Course"><span data-i18n="course"></span></li>
+            <li data-filter=".filter-Work"><span data-i18n="works"></span></li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -471,8 +478,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>"Coding, like life, is most beautiful when it's all about constant optimization and iteration."</p>
+        <h2><span data-i18n="server"></span></h2>
+        <p><span data-i18n="extract4"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -482,10 +489,10 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
             <div>
-              <h4 class="title">Software Development</h4>
-              <p class="description">Web development (Frontend, Backend, Full-stack)</p>
-              <p class="description">Mobile Application Development (iOS/Android)</p>
-              <p class="description">Desktop Application Development</p>
+              <h4 class="title"><span data-i18n="software"></span></h4>
+              <p class="description"><span data-i18n="software1"></span></p>
+              <p class="description"><span data-i18n="software2"></span></p>
+              <p class="description"><span data-i18n="software3"></span></p>
             </div>
           </div>
           <!-- End Service Item -->
@@ -493,50 +500,50 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
             <div>
-              <h4 class="title">Technical Consulting</h4>
-              <p class="description">Programming tutoring and training</p>
-              <p class="description">Code review and optimization</p>
-              <p class="description">Software architecture design</p>
+              <h4 class="title"><span data-i18n="consulting"></span></h4>
+              <p class="description"><span data-i18n="consulting1"></span></p>
+              <p class="description"><span data-i18n="consulting2"></span></p>
+              <p class="description"><span data-i18n="consulting3"></span></p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
             <div>
-              <h4 class="title">Data Science & AI</h4>
-              <p class="description">Data analysis and visualization</p>
-              <p class="description">Machine learning model development</p>
-              <p class="description">Data cleaning and processing</p>
+              <h4 class="title"><span data-i18n="ds"></span></h4>
+              <p class="description"><span data-i18n="ds1"></span></p>
+              <p class="description"><span data-i18n="ds2"></span></p>
+              <p class="description"><span data-i18n="ds3"></span></p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
             <div>
-              <h4 class="title">Game Development</h4>
-                <p class="description">2D/3D game programming</p>
-                <p class="description">Game design and mechanics implementation</p>
-                <p class="description">Game optimization and debugging</p>
+              <h4 class="title"><span data-i18n="game"></span></h4>
+                <p class="description"><span data-i18n="game1"></span></p>
+                <p class="description"><span data-i18n="game2"></span></p>
+                <p class="description"><span data-i18n="game3"></span></p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
             <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
             <div>
-              <h4 class="title">Creative & Multimedia</h4>
-                <p class="description">UI/UX design</p>
-                <p class="description">Graphic design and image editing</p>
-                <p class="description">Animation and interactive media</p>
+              <h4 class="title"><span data-i18n="create"></span></h4>
+                <p class="description"><span data-i18n="create1"></span></p>
+                <p class="description"><span data-i18n="create2"></span></p>
+                <p class="description"><span data-i18n="create3"></span></p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
             <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
             <div>
-              <h4 class="title">Freelance & Custom Services</h4>
-              <p class="description">API development and integration</p>
-                <p class="description">Custom software solutions</p>
-                <p class="description">WordPress/Shopify site setup</p>
+              <h4 class="title"><span data-i18n="service"></span></h4>
+                <p class="description"><span data-i18n="service1"></span></p>
+                <p class="description"><span data-i18n="service2"></span></p>
+                <p class="description"><span data-i18n="service3"></span></p>
             </div>
           </div><!-- End Service Item -->
 
@@ -552,8 +559,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>"The best way to know the value of your work is through the words of those you've helped."</p>
+        <h2><span data-i18n="testimonials"></span></h2>
+        <p><span data-i18n="extract8"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -590,12 +597,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"The candidate has demonstrated exceptional problem-solving skills and a strong grasp of algorithms. Their ability to write efficient and well-structured code sets them apart."</span>
+                  <span><span data-i18n="testimonial1"></span></span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3>Lachlan Andrew</h3>
-                <h4>Coordinator of Computer System</h4>
+                <h4><span data-i18n="testimonialor1"></span></h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -603,12 +610,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"With outstanding analytical abilities and mathematical intuition, the candidate excels in problem-solving and abstract reasoning, making them a strong asset in any quantitative field."</span>
+                  <span data-i18n="testimonial2"></span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Sara Wilsson</h3>
-                <h4>Head Lecture of Calculus</h4>
+                <h4><span data-i18n="testimonialor2"></span></h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -616,13 +623,13 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"This student writes clean, well-structured code and explains their ideas clearly. They’re great at collaborating and always bring a positive, thoughtful approach to discussions."</span>
+                  <span data-i18n="testimonial3"></span>
                 </span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Jena Karlis</h3>
-                <h4>Tutor of Design of Algorithm</h4>
+                <h4><span data-i18n="testimonialor3"></span></h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -630,12 +637,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"Working with Jiashao on our machine learning project was a great experience. He's a strong team player—always contributing ideas, writing solid code, and making sure everyone stays on the same page."</span>
+                  <span data-i18n="testimonial4"></span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                 <h3>YuBo Wang</h3>
-                <h4>Machine Learning Teammates</h4>
+                <h4><span data-i18n="testimonialor4"></span></h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -643,10 +650,7 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span style="white-space: pre-line;">
-                    . . .   . . .
-                    I'm waiting for your comments!
-                  </span>
+                  <span style="white-space: pre-line;" data-i18n="testimonial5"></span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
@@ -668,8 +672,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>"As a collaborative learner, I enjoy sharing ideas and solving problems together in projects"</p>
+        <h2><span data-i18n="contact"></span></h2>
+        <p><spand data-i18n="extract9"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -682,7 +686,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h3>Address</h3>
+                  <h3><span data-i18n="address"></span></h3>
                   <p>500 Elizabeth Street, Melbourne, VIC, Australia</p>
                 </div>
               </div><!-- End Info Item -->
@@ -690,7 +694,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Call Me</h3>
+                  <h3><span data-i18n="callme"></span></h3>
                   <p>+61 466 900 373</p>
                 </div>
               </div><!-- End Info Item -->
@@ -698,7 +702,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h3>Email Me</h3>
+                  <h3><span data-i18n="emailme"></span></h3>
                   <p>205637794@qq.com</p>
                 </div>
               </div><!-- End Info Item -->
@@ -726,22 +730,22 @@
             >
               <div class="row gy-4">
                 <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
+                  <label for="name-field" class="pb-2"><span data-i18n="yourname"></span></label>
                   <input type="text" name="name" id="name-field" class="form-control" required>
                 </div>
           
                 <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
+                  <label for="email-field" class="pb-2"><span data-i18n="youremail"></span></label>
                   <input type="email" class="form-control" name="email" id="email-field" required>
                 </div>
           
                 <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
+                  <label for="subject-field" class="pb-2"><span data-i18n="yoursubject"></span></label>
                   <input type="text" class="form-control" name="subject" id="subject-field" required>
                 </div>
           
                 <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
+                  <label for="message-field" class="pb-2"><span data-i18n="yourmessage"></span></label>
                   <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
                 </div>
           
@@ -749,12 +753,12 @@
                 <input type="hidden" name="_redirect" value="thank-you.html">
           
                 <div class="col-md-12 text-center">
-                  <div class="loading" style="display: none;">Loading</div>
-                  <div class="error-message" style="display: none;">Error</div>
-                  <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+                  <div class="loading" style="display: none;"><span data-i18n="loading"></span></div>
+                  <div class="error-message" style="display: none;"><span data-i18n="error"></span></div>
+                  <div class="sent-message" style="display: none;"><span data-i18n="emailsent"></span></div>
           
                   <button type="submit" class="btn-send">
-                    Send Message
+                    <span data-i18n="send"></span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                       <path d="M22 2 11 13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M22 2 15 22 11 13 2 9z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -793,7 +797,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <!-- 在底部添加 i18n.js 引用 -->
+  <script src="assets/js/i18n.js"></script>
 </body>
-
 </html>
