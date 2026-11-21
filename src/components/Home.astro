@@ -1,0 +1,496 @@
+---
+// Home page body. Text comes from src/i18n/<lang>.json.
+import zh from '../i18n/zh.json';
+import en from '../i18n/en.json';
+import { asset, makeLink } from '../lib/paths';
+
+interface Props {
+  lang: 'zh' | 'en';
+}
+const { lang } = Astro.props;
+const t = lang === 'zh' ? zh : en;
+const link = makeLink(lang);
+const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
+---
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src={asset('assets/img/hero-bg.jpg')} alt="" data-aos="fade-in" fetchpriority="high">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>{t.name}</h2>
+        <p>{t.heroPrefix} <span class="typed" data-typed-items={t.heroRoles.join(', ')}></span></p>
+        <p class="hero-tagline">{t.heroTagline}</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-hero btn-hero-primary">{t.heroCtaProducts}</a>
+          <a href="#contact" class="btn-hero">{t.heroCtaContact}</a>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Products Section -->
+    <section id="products" class="products section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{t.products}</h2>
+        <p>{t.productsIntro}</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <!-- Product 1: Mianyu (sleep sounds) -->
+          <div class="col-xl-6" data-aos="fade-up" data-aos-delay="100">
+            <article class="product-card h-100">
+              <a href={link('products/mianyu/')} class="product-media">
+                <img src={asset('assets/img/products/mianyu/promo-01.jpg')} alt="眠屿 Mianyu" width="900" height="1200" loading="lazy">
+              </a>
+              <div class="product-body">
+                <span class="status-badge status-beta">{t.mianyuStatus}</span>
+                <h3>{t.mianyuName}</h3>
+                <p class="product-pitch">{t.mianyuPitch}</p>
+                <ul>
+                  <li>{t.mianyuF1}</li>
+                  <li>{t.mianyuF2}</li>
+                  <li>{t.mianyuF3}</li>
+                  <li>{t.mianyuF4}</li>
+                </ul>
+                <div class="product-actions">
+                  <a href={link('products/mianyu/')} class="btn-product btn-product-primary">{t.learnMore}</a>
+                  <a href={asset('assets/img/portfolio/wechat.jpg')} class="btn-product glightbox">{t.joinBeta}</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Product 2: Lijie (strength training log) -->
+          <div class="col-xl-6" data-aos="fade-up" data-aos-delay="200">
+            <article class="product-card h-100">
+              <div class="product-media product-media-steps" aria-hidden="true">
+                {t.lijieStep1}
+                <i class="bi bi-arrow-down"></i>
+                {t.lijieStep2}
+                <i class="bi bi-arrow-down"></i>
+                {t.lijieStep3}
+              </div>
+              <div class="product-body">
+                <span class="status-badge status-planned">{t.lijieStatus}</span>
+                <h3>{t.lijieName}</h3>
+                <p class="product-pitch">{t.lijiePitch}</p>
+                <ul>
+                  <li>{t.lijieF1}</li>
+                  <li>{t.lijieF2}</li>
+                  <li>{t.lijieF3}</li>
+                </ul>
+                <div class="product-actions">
+                  <a href={asset('assets/img/portfolio/wechat.jpg')} class="btn-product btn-product-primary glightbox">{t.joinWaitlist}</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- /Products Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section light-background">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{t.portfolio}</h2>
+        <p>{t.extract6}</p>
+      </div>
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <article class="project-card h-100">
+              <div class="project-icon"><i class="bi bi-calendar-event"></i></div>
+              <span class="status-badge status-live">{t.vctStatus}</span>
+              <h3>{t.vctName}</h3>
+              <p>{t.vctDesc}</p>
+              <ul class="tag-list"><li>Python</li><li>GitHub Actions</li><li>iCal</li></ul>
+              <div class="project-links">
+                <a href={link('projects/vct-calendar/')}>{t.details}</a>
+                <a href="https://github.com/Adamchen566/VCT-matches-to-iCal" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <article class="project-card h-100">
+              <div class="project-icon"><i class="bi bi-people"></i></div>
+              <span class="status-badge status-beta">{t.avalonStatus}</span>
+              <h3>{t.avalonName}</h3>
+              <p>{t.avalonDesc}</p>
+              <ul class="tag-list"><li>React</li><li>TypeScript</li><li>FastAPI</li><li>PostgreSQL</li><li>WebSocket</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/Adamchen566/GameMaster" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <article class="project-card h-100">
+              <div class="project-icon"><i class="bi bi-grid-3x3-gap"></i></div>
+              <span class="status-badge status-done">{t.mahjongStatus}</span>
+              <h3>{t.mahjongName}</h3>
+              <p>{t.mahjongDesc}</p>
+              <ul class="tag-list"><li>Python</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/Adamchen566/mahjong_AI" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <h3 class="more-projects-title" data-aos="fade-up">{t.moreProjects}</h3>
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Course Projects 1: EODP machine learning-->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
+              <div class="portfolio-content h-100">
+                <img src={asset('assets/img/portfolio/course-1.jpg')} class="img-fluid" alt="Online bookstore analysis — machine learning course project" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Machine Learning</h4>
+                  <p>Online Bookstore Analysis</p>
+                  <a href={asset('assets/img/portfolio/course-1.jpg')} title="Machine Learning: Online Bookstore Analysis" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href={link('projects/bookstore-analysis/')} title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Course Project 2: Database System -->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
+              <div class="portfolio-content h-100">
+                <img src={asset('assets/img/portfolio/course-2.jpg')} class="img-fluid" alt="OGRE — database systems course project" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Database System</h4>
+                  <p>OGRE: Open Generative-AI Responsible Environment</p>
+                  <a href={asset('assets/img/portfolio/course-2.jpg')} title="Database System: Open Generative-AI Responsible Environment" data-gallery="portfolio-gallery-project" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href={link('projects/ogre-database/')} title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Course Project 3: OOP Java -->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
+              <div class="portfolio-content h-100">
+                <img src={asset('assets/img/portfolio/course-3.jpg')} class="img-fluid" alt="Shadow Taxi — Java game" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Object-Oriented Programming</h4>
+                  <p>Shadow Taxi</p>
+                  <a href={asset('assets/img/portfolio/course-3.jpg')} title="Object-Oriented Programming: Shadow Taxi" data-gallery="portfolio-gallery-project" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href={link('projects/shadow-taxi/')} title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Work 1: CBA job simulation -->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Work">
+              <div class="portfolio-content h-100">
+                <img src={asset('assets/img/portfolio/work-1.jpg')} class="img-fluid" alt="Commonwealth Bank job simulation certificate" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Job simulation</h4>
+                  <p>CommonwealthBank · {t.nicknameNote}</p>
+                  <a href={asset('assets/img/portfolio/work-1.jpg')} title="CommonwealthBank Job simulation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href={link('projects/commbank-job-simulation/')} title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{t.about}
+        <a class="download resume-link" href={resumeUrl} download>{t.downloadresume}</a></h2>
+        <p>{t.about1}</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <img src={asset('assets/img/my-profile-img.jpg')} class="img-fluid" alt="Jiashao Chen" width="800" height="800" loading="lazy">
+          </div>
+          <div class="col-lg-8 content">
+            <h2>{t.about2}</h2>
+            <p class="fst-italic py-3">
+              {t.about3}
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.Birthday}</strong> <span>06/06/2005</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.website}</strong> <span><a href="https://github.com/Adamchen566" target="_blank" rel="noopener">GitHub</a></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.phone}</strong> <span>+61 4 6690 0373</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.city}</strong> <span>{t.melbourne}</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.age}</strong> <span id="age" data-birthday="2005-06-06"></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.degree}</strong> {t.degreeValue}</li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.email}</strong> <span><a href="mailto:205637794@qq.com">205637794@qq.com</a></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>{t.freelance}</strong> <span>{t.available}</span></li>
+                </ul>
+              </div>
+            </div>
+            <p class="py-3">
+              {t.extract1}
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section light-background">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{t.skills}</h2>
+        <p>{t.extract2}</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4>{t.skillLang}</h4>
+              <ul class="tag-list"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C</li><li>SQL</li></ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4>{t.skillFront}</h4>
+              <ul class="tag-list"><li>React</li><li>Vite</li><li>Capacitor (Android)</li><li>HTML / CSS</li></ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4>{t.skillBack}</h4>
+              <ul class="tag-list"><li>Node.js (Fastify)</li><li>FastAPI</li><li>SQLite</li><li>PostgreSQL</li><li>WebSocket</li></ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4>{t.skillTools}</h4>
+              <ul class="tag-list"><li>Git</li><li>GitHub Actions</li><li>Linux</li><li>Docker</li><li>{t.tencentCloud}</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Skills Section -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{t.resume}</h2>
+        <p>{t.extract3}</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">{t.summary}</h3>
+
+            <div class="resume-item pb-0">
+              <h4>{t.introduction}</h4>
+              <p><em>{t.extract5}</em></p>
+              <!-- <ul>
+                <li>Address</li>
+                <li>(123) 456-7891</li>
+                <li>alice.barkley@example.com</li>
+              </ul> -->
+            </div><!-- Edn Resume Item -->
+
+            <h3 class="resume-title">{t.education}</h3>
+            <div class="resume-item">
+              <h4>{t.education2}</h4>
+              <h5>2026 – 2027</h5>
+              <p><em>{t.uom}</em></p>
+              <p>{t.mit}</p>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>{t.education1}</h4>
+              <h5>2023 – 2026</h5>
+              <p><em>{t.uom}</em></p>
+              <p>{t.bsci}</p>
+            </div><!-- Edn Resume Item -->
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">{t.experience}</h3>
+            <div class="resume-item">
+              <h4>{t.exp1}</h4>
+              <h5>{t.exp1Time}</h5>
+              <ul>
+                <li>{t.exp1_1}</li>
+                <li>{t.exp1_2}</li>
+                <li>{t.exp1_3}</li>
+              </ul>
+            </div><!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>{t.exp2}</h4>
+              <h5>{t.exp2Time}</h5>
+              <ul>
+                <li>{t.exp2_1}</li>
+                <li>{t.exp2_2}</li>
+                <li>{t.exp2_3}</li>
+              </ul>
+            </div><!-- End Resume Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Resume Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{t.services}</h2>
+        <p>{t.extract4}</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="bi bi-phone"></i></div>
+            <div>
+              <h4 class="title">{t.svc1}</h4>
+              <p class="description">{t.svc1_1}</p>
+              <p class="description">{t.svc1_2}</p>
+              <p class="description">{t.svc1_3}</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="bi bi-window-stack"></i></div>
+            <div>
+              <h4 class="title">{t.svc2}</h4>
+              <p class="description">{t.svc2_1}</p>
+              <p class="description">{t.svc2_2}</p>
+              <p class="description">{t.svc2_3}</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon flex-shrink-0"><i class="bi bi-arrow-repeat"></i></div>
+            <div>
+              <h4 class="title">{t.svc3}</h4>
+              <p class="description">{t.svc3_1}</p>
+              <p class="description">{t.svc3_2}</p>
+              <p class="description">{t.svc3_3}</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /Services Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{t.contact}</h2>
+        <p>{t.extract9}</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-7">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>{t.address}</h3>
+                  <p>500 Elizabeth Street, Melbourne, VIC, Australia</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>{t.callme}</h3>
+                  <p>+61 466 900 373</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>{t.emailme}</h3>
+                  <p><a href="mailto:205637794@qq.com">205637794@qq.com</a><br><a href="mailto:xhl566@gmail.com">xhl566@gmail.com</a></p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <!-- Google Maps hidden for now (unreachable in mainland China)
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12583.84243997894!2d144.961158!3d-37.807169!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642c2f1b1f003:0x22f0924c7d685522!2s500%20Elizabeth%20St,%20Melbourne%20VIC%203000,%20Australia!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" 
+                title="Map: 500 Elizabeth Street, Melbourne"
+                style="border:0; width:100%; height:300px;"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+              -->
+
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="wechat-card text-center" data-aos="fade-up" data-aos-delay="200">
+              <h3><i class="bi bi-wechat"></i> {t.wechatScan}</h3>
+              <a href={asset('assets/img/portfolio/wechat.jpg')} class="glightbox"><img src={asset('assets/img/portfolio/wechat.jpg')} alt="WeChat QR code" loading="lazy"></a>
+              <p>{t.wechatNote}</p>
+              <a class="download resume-link" href={resumeUrl} download>{t.downloadresume}</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->

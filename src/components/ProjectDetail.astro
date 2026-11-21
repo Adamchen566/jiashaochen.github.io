@@ -1,0 +1,90 @@
+---
+// One project detail page, rendered for /projects/<slug>/ and /en/projects/<slug>/.
+import Base from '../layouts/Base.astro';
+import { asset, makeLink, type Lang } from '../lib/paths';
+import type { Project } from '../data/projects';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+const { lang, project } = Astro.props;
+const link = makeLink(lang);
+const ui = {
+  zh: { home: '首页', projects: '项目', info: '项目信息', category: '类别', audience: '面向', date: '时间', link: '链接', note: '说明', brief: '项目简介', site: '陈佳绍' },
+  en: { home: 'Home', projects: 'Projects', info: 'Project information', category: 'Category', audience: 'Made for', date: 'Date', link: 'Link', note: 'Note', brief: 'Project brief', site: 'Jiashao Chen' },
+}[lang];
+const sep = lang === 'zh' ? '：' : ': ';
+const title = project.title[lang];
+const linkHref = project.link && (project.link.href.startsWith('http') ? project.link.href : asset(project.link.href));
+---
+<Base lang={lang} path={`projects/${project.slug}/`} title={`${title} | ${ui.site}`} description={project.brief[lang].slice(0, 150)} swiper section="portfolio">
+
+  <!-- Page Title -->
+  <div class="page-title dark-background">
+    <div class="container d-lg-flex justify-content-between align-items-center">
+      <h1 class="mb-2 mb-lg-0">{title}</h1>
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href={link('')}>{ui.home}</a></li>
+          <li><a href={`${link('')}#portfolio`}>{ui.projects}</a></li>
+          <li class="current">{title}</li>
+        </ol>
+      </nav>
+    </div>
+  </div><!-- End Page Title -->
+
+  <section id="portfolio-details" class="portfolio-details section">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-8">
+          <div class="portfolio-details-slider swiper init-swiper">
+
+            <script type="application/json" class="swiper-config" is:inline set:html={JSON.stringify({
+              loop: true,
+              speed: 600,
+              autoplay: { delay: 5000 },
+              slidesPerView: 'auto',
+              pagination: { el: '.swiper-pagination', type: 'bullets', clickable: true },
+            })}></script>
+
+            <div class="swiper-wrapper align-items-center">
+              {project.images.map((image, index) => (
+                <div class="swiper-slide">
+                  <img src={asset(`assets/img/portfolio/${image}`)} alt={`${title} ${index + 1}`}>
+                </div>
+              ))}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+            <h3>{ui.info}</h3>
+            <ul>
+              <li><strong>{ui.category}</strong>{sep}{project.category[lang]}</li>
+              <li><strong>{ui.audience}</strong>{sep}{project.audience[lang]}</li>
+              <li><strong>{ui.date}</strong>{sep}{project.date[lang]}</li>
+              {project.link && (
+                <li><strong>{ui.link}</strong>{sep}<a href={linkHref} class={project.link.lightbox ? 'glightbox' : undefined} target={project.link.lightbox ? undefined : '_blank'} rel={project.link.lightbox ? undefined : 'noopener'}>{project.link.label[lang]}</a></li>
+              )}
+              {project.note && <li><strong>{ui.note}</strong>{sep}{project.note[lang]}</li>}
+            </ul>
+          </div>
+          <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+            <h2>{ui.brief}</h2>
+            <p>{project.brief[lang]}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</Base>

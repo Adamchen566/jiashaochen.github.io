@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import Home from '../../components/Home.astro';
+import t from '../../i18n/en.json';
+
+const description = 'Personal website of Jiashao Chen: Master of Information Technology (AI) student at the University of Melbourne, software engineer and indie developer. Products: Mianyu, a bedtime sound app, and Lijie, a strength training log.';
+---
+<Base lang="en" title={t.welcome} description={description} home>
+  <Home lang="en" />
+</Base>

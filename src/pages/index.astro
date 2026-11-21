@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import Home from '../components/Home.astro';
+import t from '../i18n/zh.json';
+
+const description = '陈佳绍（Jiashao Chen）的个人网站。墨尔本大学信息技术硕士（人工智能方向）在读，软件工程师、独立开发者。在做的产品：睡前声音 App 眠屿、力量训练记录 App 力阶。';
+---
+<Base lang="zh" title={t.welcome} description={description} home>
+  <Home lang="zh" />
+</Base>

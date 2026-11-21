@@ -1,0 +1,159 @@
+---
+// Shared page shell: <head>, sidebar, footer and scripts.
+import zh from '../i18n/zh.json';
+import en from '../i18n/en.json';
+import { asset, makeLink, type Lang } from '../lib/paths';
+
+interface Props {
+  lang: Lang;
+  /** Page path below the language root, '' for the home page, e.g. 'products/mianyu/'. */
+  path?: string;
+  title: string;
+  description: string;
+  /** Home page: typing effect and masonry grid scripts. */
+  home?: boolean;
+  /** Pages with an image slider. */
+  swiper?: boolean;
+  /** Which sidebar entry is highlighted on sub pages. */
+  section?: 'products' | 'portfolio';
+}
+
+const { lang, path = '', title, description, home = false, swiper = false, section } = Astro.props;
+const t = lang === 'zh' ? zh : en;
+const link = makeLink(lang);
+const zhUrl = makeLink('zh')(path);
+const enUrl = makeLink('en')(path);
+const canonical = new URL(lang === 'zh' ? zhUrl : enUrl, Astro.site).href;
+const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
+// On the home page the menu scrolls; elsewhere it links back to the home page.
+const anchor = (id: string) => (home ? `#${id}` : `${link('')}#${id}`);
+
+const nav = [
+  { id: 'hero', icon: 'bi-house', label: t.home },
+  { id: 'products', icon: 'bi-phone', label: t.products },
+  { id: 'portfolio', icon: 'bi-images', label: t.portfolio },
+  { id: 'about', icon: 'bi-person', label: t.about },
+  { id: 'resume', icon: 'bi-file-earmark-text', label: t.resume },
+  { id: 'services', icon: 'bi-hdd-stack', label: t.services },
+  { id: 'contact', icon: 'bi-envelope', label: t.contact },
+];
+const activeId = home ? 'hero' : section;
+---
+<!DOCTYPE html>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  <link rel="alternate" hreflang="zh-CN" href={new URL(zhUrl, Astro.site).href}>
+  <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.site).href}>
+  <link rel="alternate" hreflang="x-default" href={new URL(zhUrl, Astro.site).href}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={new URL(asset('assets/img/review.jpg'), Astro.site).href}>
+
+  <!-- Favicons -->
+  <link href={asset('assets/img/favicon.png')} rel="icon">
+  <link href={asset('assets/img/apple-touch-icon.png')} rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href={asset('assets/vendor/bootstrap/css/bootstrap.min.css')} rel="stylesheet">
+  <link href={asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')} rel="stylesheet">
+  <link href={asset('assets/vendor/aos/aos.css')} rel="stylesheet">
+  <link href={asset('assets/vendor/glightbox/css/glightbox.min.css')} rel="stylesheet">
+  {swiper && <link href={asset('assets/vendor/swiper/swiper-bundle.min.css')} rel="stylesheet">}
+
+  <!-- Main CSS File -->
+  <link href={asset('assets/css/main.css')} rel="stylesheet">
+
+  <!-- Without JavaScript: no preloader, no scroll animations, everything visible -->
+  <noscript>
+    <style>
+      #preloader { display: none; }
+      [data-aos] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+
+  <!-- =======================================================
+  * Author Name: Jiashao Chen (Adam)
+  * Based on the iPortfolio template by BootstrapMade.com
+  ======================================================== -->
+</head>
+
+<body class={home ? 'index-page' : 'portfolio-details-page'}>
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <div class="language-switcher">
+      <a class="language" href={enUrl} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>English</a>
+      <a class="language" href={zhUrl} hreflang="zh-CN" lang="zh-CN" aria-current={lang === 'zh' ? 'true' : undefined}>简体中文</a>
+      <a class="language resume-link" href={resumeUrl} download>{t.downloadresume}</a>
+    </div>
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src={asset('assets/img/my-profile-img-sm.jpg')} alt={t.name} width="240" height="240" class="img-fluid rounded-circle">
+    </div>
+
+    <a href={link('')} class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">{t.name}</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href={asset('assets/img/portfolio/wechat.jpg')} class="glightbox" title="WeChat" aria-label="WeChat"><i class="bi bi-wechat"></i></a>
+      <a href="https://github.com/Adamchen566" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.xiaohongshu.com/user/profile/5fa791970000000001005585" target="_blank" rel="noopener" class="social-text" title="小红书" aria-label="小红书">小红书</a>
+      <a href="https://space.bilibili.com/392777600" target="_blank" rel="noopener" class="social-text" title="哔哩哔哩" aria-label="哔哩哔哩">B站</a>
+      <a href="https://x.com/xhl566" target="_blank" rel="noopener" title="X" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        {nav.map(item => (
+          <li><a href={anchor(item.id)} class={item.id === activeId ? 'active' : undefined}><i class={`bi ${item.icon} navicon`}></i>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+    <slot />
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year">{new Date().getFullYear()}</span> <strong class="px-1 sitename">{t.name}</strong> {t.rights}</p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script is:inline src={asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}></script>
+  <script is:inline src={asset('assets/vendor/aos/aos.js')}></script>
+  <script is:inline src={asset('assets/vendor/glightbox/js/glightbox.min.js')}></script>
+  {home && <script is:inline src={asset('assets/vendor/typed.js/typed.umd.js')}></script>}
+  {home && <script is:inline src={asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}></script>}
+  {home && <script is:inline src={asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}></script>}
+  {swiper && <script is:inline src={asset('assets/vendor/swiper/swiper-bundle.min.js')}></script>}
+
+  <!-- Main JS File -->
+  <script is:inline src={asset('assets/js/main.js')}></script>
+</body>
+
+</html>

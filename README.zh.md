@@ -4,7 +4,7 @@
 
 线上地址：https://adamchen566.github.io/jiashaochen.github.io/
 
-![网站预览](assets/img/review.jpg)
+![网站预览](public/assets/img/review.jpg)
 
 ## 关于
 
@@ -12,51 +12,75 @@
 
 ## 功能
 
-- 中英文切换（首次访问跟随浏览器语言）
-- 响应式布局，适配手机、平板和桌面
+- 中文页面在 `/`，英文页面在 `/en/`，都在构建时生成，文字直接写在 HTML 里
 - 产品区（眠屿、力阶），标注真实进度，带产品详情页
-- 项目区，标注状态，带详情页
-- 简历下载，中文或英文跟随页面语言
+- 项目区，标注状态，每个项目有详情页
+- 简历下载，中文或英文
+- 不开 JavaScript 也能看；不请求任何第三方域名
 
 ## 技术栈
 
-- 纯静态 HTML、CSS、JavaScript，没有构建步骤
-- Bootstrap 5，以及 `assets/vendor` 里的 AOS、GLightbox、Isotope、Swiper、Typed.js
-- 部署在 GitHub Pages
+- [Astro](https://astro.build) 静态站点，没有前端框架
+- Bootstrap 5，以及 `public/assets/vendor` 里的 AOS、GLightbox、Isotope、Swiper、Typed.js
+- 部署在 GitHub Pages，由 GitHub Actions 发布
 
 ## 目录
 
 | 路径 | 内容 |
 |---|---|
-| `index.html` | 唯一的主页面 |
-| `products/` | 每个产品一个详情页 |
-| `portfolio-details/` | 每个项目一个详情页 |
-| `resume/` | 简历源文件（HTML + CSS）；PDF 在 `assets/resume/` |
-| `assets/js/i18n.js` | 主页面的全部中英文文案 |
-| `assets/js/main.js` | 页面行为（菜单、打字效果、灯箱、轮播） |
-| `assets/css/main.css` | 样式 |
-| `assets/img/` | 图片 |
+| `src/i18n/zh.json`、`src/i18n/en.json` | 首页的全部文字 |
+| `src/components/Home.astro` | 首页各个区块 |
+| `src/components/MianyuDetail.astro` | 眠屿产品页，中英文都在里面 |
+| `src/data/projects.ts` | 项目详情页：每个项目一条，中英文都在里面 |
+| `src/layouts/Base.astro` | 页头、侧栏、页脚、脚本 |
+| `src/pages/` | 路由；`en/` 和中文页面一一对应 |
+| `public/assets/` | 样式、脚本、图片、视频、简历 PDF |
+| `public/resume/` | 简历源文件（HTML + CSS） |
 
-## 本地预览
+## 常见修改
 
-直接用浏览器打开 `index.html`，或者起一个本地服务：
+| 想做什么 | 改哪里 |
+|---|---|
+| 改首页的文字 | `src/i18n/zh.json` 和 `src/i18n/en.json` |
+| 加一个项目详情页 | 在 `src/data/projects.ts` 里加一条，图片放 `public/assets/img/portfolio/` |
+| 在首页加产品或项目卡片 | `src/components/Home.astro`，文字加到两个 JSON 文件里 |
+| 更新简历 | `public/resume/zh.html`、`public/resume/en.html`，然后重新生成 PDF |
+
+## 本地运行
 
 ```bash
-python -m http.server 8000
+npm install
 ```
+
+```bash
+npm run dev
+```
+
+```bash
+npm run build
+```
+
+`npm run preview` 会在 `http://localhost:4321/jiashaochen.github.io/` 提供构建好的站点。
 
 ## 重新生成简历 PDF
 
-改 `resume/zh.html` 或 `resume/en.html`，按上面的方法起本地服务，再用无头 Chrome 把页面打印成 PDF：
+先运行 `npm run preview`，再用无头 Chrome 把页面打印成 PDF：
 
 ```bash
-chrome --headless=new --no-pdf-header-footer --print-to-pdf=assets/resume/Jiashao-Chen-Resume-zh.pdf http://localhost:8000/resume/zh.html
+chrome --headless=new --no-pdf-header-footer --print-to-pdf=public/assets/resume/Jiashao-Chen-Resume-zh.pdf http://localhost:4321/jiashaochen.github.io/resume/zh.html
 ```
 
-## 项目
+## 部署
 
-- [VCT 赛程订阅日历](https://github.com/Adamchen566/VCT-matches-to-iCal)：抓取无畏契约赛程，生成可订阅的日历
-- [Shadow Taxi](https://github.com/Adamchen566/ShadowTaxi)：用 Java 写的出租车模拟游戏
+推送到 `main` 会运行 `.github/workflows/deploy.yml`，构建站点并把 `dist/` 发布到 GitHub Pages。仓库设置里 Pages → Build and deployment → Source 要选 **GitHub Actions**。
+
+部署到自己的域名和服务器时这样构建：
+
+```bash
+SITE_URL=https://example.com SITE_BASE=/ npm run build
+```
+
+然后上传 `dist/`。
 
 ## 联系方式
 
