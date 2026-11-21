@@ -3,7 +3,7 @@
 import zh from '../i18n/zh.json';
 import en from '../i18n/en.json';
 import { asset, makeLink, type Lang } from '../lib/paths';
-import { getPosts } from '../lib/blog';
+import { brandIcons } from '../data/brand-icons';
 
 interface Props {
   lang: Lang;
@@ -16,16 +16,14 @@ interface Props {
   /** Pages with an image slider. */
   swiper?: boolean;
   /** Which sidebar entry is highlighted on sub pages. */
-  section?: 'products' | 'portfolio' | 'books' | 'blog';
-  /** Page exists in Chinese only: the English switch goes to the English home page. */
-  zhOnly?: boolean;
+  section?: 'products' | 'portfolio' | 'books';
 }
 
-const { lang, path = '', title, description, home = false, swiper = false, section, zhOnly = false } = Astro.props;
+const { lang, path = '', title, description, home = false, swiper = false, section } = Astro.props;
 const t = lang === 'zh' ? zh : en;
 const link = makeLink(lang);
 const zhUrl = makeLink('zh')(path);
-const enUrl = makeLink('en')(zhOnly ? '' : path);
+const enUrl = makeLink('en')(path);
 const canonical = new URL(lang === 'zh' ? zhUrl : enUrl, Astro.site).href;
 const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
 // On the home page the menu scrolls; elsewhere it links back to the home page.
@@ -41,12 +39,8 @@ const nav = [
   { id: 'contact', icon: 'bi-envelope', label: t.contact },
 ];
 const activeId = home ? 'hero' : section;
-// Pages of their own, listed after the home page sections. The blog shows up once it has a published post.
-const hasPosts = (await getPosts()).length > 0;
-const pageLinks = [
-  { id: 'books', icon: 'bi-book', label: t.books, href: link('books/') },
-  ...(hasPosts ? [{ id: 'blog', icon: 'bi-journal-text', label: t.blog, href: makeLink('zh')('blog/') }] : []),
-];
+// Pages of their own, listed after the home page sections.
+const pageLinks = [{ id: 'books', icon: 'bi-book', label: t.books, href: link('books/') }];
 ---
 <!DOCTYPE html>
 <html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
@@ -58,7 +52,7 @@ const pageLinks = [
   <meta name="description" content={description}>
   <link rel="canonical" href={canonical}>
   <link rel="alternate" hreflang="zh-CN" href={new URL(zhUrl, Astro.site).href}>
-  {!zhOnly && <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.site).href}>}
+  <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.site).href}>
   <link rel="alternate" hreflang="x-default" href={new URL(zhUrl, Astro.site).href}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
@@ -129,8 +123,8 @@ const pageLinks = [
       <a href={asset('assets/img/portfolio/wechat.jpg')} class="glightbox" title="WeChat" aria-label="WeChat"><i class="bi bi-wechat"></i></a>
       <a href="https://github.com/Adamchen566" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="bi bi-github"></i></a>
       <a href="https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-      <a href="https://www.xiaohongshu.com/user/profile/5fa791970000000001005585" target="_blank" rel="noopener" class="social-text" title="小红书" aria-label="小红书">小红书</a>
-      <a href="https://space.bilibili.com/392777600" target="_blank" rel="noopener" class="social-text" title="哔哩哔哩" aria-label="哔哩哔哩">B站</a>
+      <a href="https://www.xiaohongshu.com/user/profile/5fa791970000000001005585" target="_blank" rel="noopener" title="小红书" aria-label="小红书"><svg class="brand-icon brand-icon-wide" viewBox="0 0 24 24" aria-hidden="true"><path d={brandIcons.xiaohongshu} /></svg></a>
+      <a href="https://space.bilibili.com/392777600" target="_blank" rel="noopener" title="哔哩哔哩" aria-label="哔哩哔哩"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={brandIcons.bilibili} /></svg></a>
       <a href="https://x.com/xhl566" target="_blank" rel="noopener" title="X" aria-label="X"><i class="bi bi-twitter-x"></i></a>
     </div>
 

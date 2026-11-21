@@ -242,11 +242,21 @@ h6 {
   transition: 0.3s;
 }
 
-.header .social-links a.social-text {
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1;
-  white-space: nowrap;
+.header .social-links a {
+  vertical-align: middle;
+}
+
+.header .social-links .brand-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* The Xiaohongshu mark is a wide wordmark, so it gets more room */
+.header .social-links .brand-icon-wide {
+  width: 26px;
+  height: 26px;
 }
 
 .header .social-links a:hover {
@@ -1956,8 +1966,6 @@ section,
 /* Secondary text */
 :root[data-theme="dark"] .product-detail .product-notes,
 :root[data-theme="dark"] .book-list .book-meta,
-:root[data-theme="dark"] .blog-page time,
-:root[data-theme="dark"] .post .post-summary,
 :root[data-theme="dark"] .footer .credits {
   color: var(--text-secondary);
 }
@@ -2021,8 +2029,7 @@ section,
   background: var(--primary-subtle);
 }
 
-:root[data-theme="dark"] .book-list li,
-:root[data-theme="dark"] .blog-page .post-list li {
+:root[data-theme="dark"] .book-list li {
   border-bottom-color: var(--border-subtle);
 }
 
@@ -2181,116 +2188,5 @@ section,
 @media (max-width: 767px) {
   .book-list {
     columns: 1;
-  }
-}
-
-/*--------------------------------------------------------------
-# Blog
---------------------------------------------------------------*/
-.blog-page .post-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-width: 44em;
-}
-
-.blog-page .post-list li {
-  padding: 24px 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.blog-page .post-list li:first-child {
-  padding-top: 0;
-}
-
-.blog-page time {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-}
-
-.blog-page .post-list h2 {
-  font-family: var(--book-font);
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1.35;
-  margin: 4px 0 8px 0;
-}
-
-.blog-page .post-list h2 a {
-  color: var(--heading-color);
-}
-
-.blog-page .post-list h2 a:hover {
-  color: var(--accent-color);
-}
-
-.blog-page .post-list h2 .status-badge {
-  font-family: var(--default-font);
-  margin-left: 10px;
-  vertical-align: middle;
-}
-
-.blog-page .post-list p {
-  margin: 0;
-}
-
-.blog-page .blog-empty {
-  font-size: 17px;
-}
-
-.post {
-  max-width: 40em;
-}
-
-.post header h1 {
-  font-family: var(--book-font);
-  font-size: 34px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 6px 0 14px 0;
-}
-
-.post .post-summary {
-  font-size: 18px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  padding-bottom: 24px;
-  margin-bottom: 28px;
-  border-bottom: 2px solid var(--heading-color);
-}
-
-.post-body {
-  font-size: 17px;
-  line-height: 1.9;
-}
-
-.post-body h2 {
-  font-size: 22px;
-  font-weight: 700;
-  margin: 40px 0 12px 0;
-}
-
-.post-body p,
-.post-body ul,
-.post-body ol {
-  margin-bottom: 18px;
-}
-
-.post-body li + li {
-  margin-top: 6px;
-}
-
-.post-body a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.post-back {
-  margin-top: 48px;
-  font-weight: 600;
-}
-
-@media (max-width: 575px) {
-  .post header h1 {
-    font-size: 27px;
   }
 }
