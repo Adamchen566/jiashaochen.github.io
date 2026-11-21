@@ -46,6 +46,30 @@
   });
 
   /**
+   * Theme toggle. The initial theme is set by an inline script in <head>.
+   */
+  const themeToggle = document.querySelector('#theme-toggle');
+  if (themeToggle) {
+    const root = document.documentElement;
+    const renderToggle = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      // The button names the theme you switch to.
+      themeToggle.querySelector('i').className = dark ? 'bi bi-sun' : 'bi bi-moon-stars';
+      themeToggle.querySelector('span').textContent = dark ? themeToggle.dataset.labelLight : themeToggle.dataset.labelDark;
+      themeToggle.setAttribute('aria-pressed', String(dark));
+    };
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('theme', next);
+      } catch (e) { /* storage unavailable */ }
+      renderToggle();
+    });
+    renderToggle();
+  }
+
+  /**
    * Preloader
    */
   const preloader = document.querySelector('#preloader');

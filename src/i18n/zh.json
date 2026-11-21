@@ -113,5 +113,10 @@
   "svc3_3": "导出成日历、表格等格式",
   "wechatScan": "扫码加我微信",
   "wechatNote": "加好友时请备注来意。",
-  "nicknameNote": "以昵称 Huolong Xiao 注册"
+  "nicknameNote": "以昵称 Huolong Xiao 注册",
+  "books": "书单",
+  "blog": "博客",
+  "themeDark": "深色",
+  "themeLight": "浅色",
+  "themeToggle": "切换深色或浅色主题"
 }

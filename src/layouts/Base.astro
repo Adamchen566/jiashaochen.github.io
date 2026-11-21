@@ -3,6 +3,7 @@
 import zh from '../i18n/zh.json';
 import en from '../i18n/en.json';
 import { asset, makeLink, type Lang } from '../lib/paths';
+import { getPosts } from '../lib/blog';
 
 interface Props {
   lang: Lang;
@@ -15,14 +16,16 @@ interface Props {
   /** Pages with an image slider. */
   swiper?: boolean;
   /** Which sidebar entry is highlighted on sub pages. */
-  section?: 'products' | 'portfolio';
+  section?: 'products' | 'portfolio' | 'books' | 'blog';
+  /** Page exists in Chinese only: the English switch goes to the English home page. */
+  zhOnly?: boolean;
 }
 
-const { lang, path = '', title, description, home = false, swiper = false, section } = Astro.props;
+const { lang, path = '', title, description, home = false, swiper = false, section, zhOnly = false } = Astro.props;
 const t = lang === 'zh' ? zh : en;
 const link = makeLink(lang);
 const zhUrl = makeLink('zh')(path);
-const enUrl = makeLink('en')(path);
+const enUrl = makeLink('en')(zhOnly ? '' : path);
 const canonical = new URL(lang === 'zh' ? zhUrl : enUrl, Astro.site).href;
 const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
 // On the home page the menu scrolls; elsewhere it links back to the home page.
@@ -38,6 +41,12 @@ const nav = [
   { id: 'contact', icon: 'bi-envelope', label: t.contact },
 ];
 const activeId = home ? 'hero' : section;
+// Pages of their own, listed after the home page sections. The blog shows up once it has a published post.
+const hasPosts = (await getPosts()).length > 0;
+const pageLinks = [
+  { id: 'books', icon: 'bi-book', label: t.books, href: link('books/') },
+  ...(hasPosts ? [{ id: 'blog', icon: 'bi-journal-text', label: t.blog, href: makeLink('zh')('blog/') }] : []),
+];
 ---
 <!DOCTYPE html>
 <html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
@@ -49,13 +58,25 @@ const activeId = home ? 'hero' : section;
   <meta name="description" content={description}>
   <link rel="canonical" href={canonical}>
   <link rel="alternate" hreflang="zh-CN" href={new URL(zhUrl, Astro.site).href}>
-  <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.site).href}>
+  {!zhOnly && <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.site).href}>}
   <link rel="alternate" hreflang="x-default" href={new URL(zhUrl, Astro.site).href}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
   <meta property="og:url" content={canonical}>
   <meta property="og:image" content={new URL(asset('assets/img/review.jpg'), Astro.site).href}>
+
+  <!-- Theme: saved choice first, otherwise the system setting. Runs before first paint. -->
+  <script is:inline>
+    (function () {
+      var dark = false;
+      try {
+        var saved = localStorage.getItem('theme');
+        dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      } catch (e) { /* storage unavailable */ }
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    })();
+  </script>
 
   <!-- Favicons -->
   <link href={asset('assets/img/favicon.png')} rel="icon">
@@ -92,6 +113,7 @@ const activeId = home ? 'hero' : section;
       <a class="language" href={enUrl} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>English</a>
       <a class="language" href={zhUrl} hreflang="zh-CN" lang="zh-CN" aria-current={lang === 'zh' ? 'true' : undefined}>简体中文</a>
       <a class="language resume-link" href={resumeUrl} download>{t.downloadresume}</a>
+      <button type="button" class="language theme-toggle" id="theme-toggle" aria-label={t.themeToggle} data-label-dark={t.themeDark} data-label-light={t.themeLight}><i class="bi bi-moon-stars"></i> <span>{t.themeDark}</span></button>
     </div>
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
@@ -116,6 +138,9 @@ const activeId = home ? 'hero' : section;
       <ul>
         {nav.map(item => (
           <li><a href={anchor(item.id)} class={item.id === activeId ? 'active' : undefined}><i class={`bi ${item.icon} navicon`}></i>{item.label}</a></li>
+        ))}
+        {pageLinks.map(item => (
+          <li><a href={item.href} class={item.id === activeId ? 'active' : undefined}><i class={`bi ${item.icon} navicon`}></i>{item.label}</a></li>
         ))}
       </ul>
     </nav>

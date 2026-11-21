@@ -113,5 +113,10 @@
   "svc3_3": "Export to calendars, spreadsheets and more",
   "wechatScan": "Scan to add me on WeChat",
   "wechatNote": "Please mention why you are reaching out.",
-  "nicknameNote": "registered under the nickname Huolong Xiao"
+  "nicknameNote": "registered under the nickname Huolong Xiao",
+  "books": "Books",
+  "blog": "Blog",
+  "themeDark": "Dark",
+  "themeLight": "Light",
+  "themeToggle": "Switch between dark and light theme"
 }

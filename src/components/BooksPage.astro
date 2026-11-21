@@ -1,0 +1,99 @@
+---
+// Book list: a shelf of spines on top, the plain list underneath.
+import Base from '../layouts/Base.astro';
+import { makeLink, type Lang } from '../lib/paths';
+import { books } from '../data/books';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const link = makeLink(lang);
+
+const ui = {
+  zh: {
+    site: '陈佳绍',
+    title: '书单',
+    description: '陈佳绍的书单：读过和想读的书，以及想留住的句子。',
+    intro: '读过和想读的书。有些句子想留住，就记在书名下面。',
+    home: '首页',
+    shelf: '书架',
+    list: '全部书目',
+    count: (n: number) => `共 ${n} 本`,
+  },
+  en: {
+    site: 'Jiashao Chen',
+    title: 'Books',
+    description: 'Jiashao Chen’s book list: books read and books waiting, with lines worth keeping.',
+    intro: 'Books I have read or want to read. When a line is worth keeping, it sits under the title.',
+    home: 'Home',
+    shelf: 'Shelf',
+    list: 'All books',
+    count: (n: number) => `${n} books`,
+  },
+}[lang];
+
+// Spine look is derived from the position, so the shelf stays the same between builds.
+const heights = [208, 232, 196, 220, 244, 204, 228, 190, 236, 212];
+const tones = ['cobalt', 'slate', 'snow', 'coat', 'night'];
+const spineTitle = (book: (typeof books)[number]) => (lang === 'zh' ? book.title : book.en ?? book.title);
+---
+<Base lang={lang} path="books/" title={`${ui.title} | ${ui.site}`} description={ui.description} section="books">
+
+  <div class="page-title dark-background">
+    <div class="container d-lg-flex justify-content-between align-items-center">
+      <h1 class="mb-2 mb-lg-0">{ui.title}</h1>
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href={link('')}>{ui.home}</a></li>
+          <li class="current">{ui.title}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <section class="books-page section">
+    <div class="container">
+
+      <p class="books-intro">{ui.intro}</p>
+
+      <nav class="bookshelf" aria-label={ui.shelf}>
+        <ol class="bookshelf-row">
+          {books.map((book, index) => (
+            <li>
+              <a
+                href={`#${book.slug}`}
+                class={`spine spine-${tones[index % tones.length]}`}
+                style={`--spine-height: ${heights[index % heights.length]}px`}
+                lang={lang === 'zh' || !book.en ? 'zh-CN' : 'en'}
+              >
+                <span class="spine-title">{spineTitle(book)}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <div class="book-list-head">
+        <h2>{ui.list}</h2>
+        <span>{ui.count(books.length)}</span>
+      </div>
+
+      <ol class="book-list">
+        {books.map(book => (
+          <li id={book.slug}>
+            <h3 lang={lang === 'zh' || !book.en ? 'zh-CN' : 'en'}>{spineTitle(book)}</h3>
+            <p class="book-meta">
+              {book.author && <span>{book.author[lang]}</span>}
+              {lang === 'zh' && book.en && <span lang="en">{book.en}</span>}
+              {lang === 'en' && book.en && <span lang="zh-CN">{book.title}</span>}
+            </p>
+            {book.note && <blockquote>{book.note[lang]}</blockquote>}
+          </li>
+        ))}
+      </ol>
+
+    </div>
+  </section>
+
+</Base>

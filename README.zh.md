@@ -16,6 +16,8 @@
 - 产品区（眠屿、力阶），标注真实进度，带产品详情页
 - 项目区，标注状态，每个项目有详情页
 - 简历下载，中文或英文
+- 深色主题用“琥珀夜色”配色：第一次打开跟随系统设置，之后记住你的选择
+- 书单页画成一排书脊；博客用 Markdown 写
 - 不开 JavaScript 也能看；不请求任何第三方域名
 
 ## 技术栈
@@ -32,6 +34,8 @@
 | `src/components/Home.astro` | 首页各个区块 |
 | `src/components/MianyuDetail.astro` | 眠屿产品页，中英文都在里面 |
 | `src/data/projects.ts` | 项目详情页：每个项目一条，中英文都在里面 |
+| `src/data/books.ts` | 书单 |
+| `src/content/blog/*.md` | 博客文章，每篇一个 Markdown 文件 |
 | `src/layouts/Base.astro` | 页头、侧栏、页脚、脚本 |
 | `src/pages/` | 路由；`en/` 和中文页面一一对应 |
 | `public/assets/` | 样式、脚本、图片、视频、简历 PDF |
@@ -44,6 +48,8 @@
 | 改首页的文字 | `src/i18n/zh.json` 和 `src/i18n/en.json` |
 | 加一个项目详情页 | 在 `src/data/projects.ts` 里加一条，图片放 `public/assets/img/portfolio/` |
 | 在首页加产品或项目卡片 | `src/components/Home.astro`，文字加到两个 JSON 文件里 |
+| 加一本书 | 在 `src/data/books.ts` 里加一条 |
+| 写一篇博客 | 在 `src/content/blog/` 新建文件，写上 `title`、`date`、`summary`；`draft: true` 表示先不发布 |
 | 更新简历 | `public/resume/zh.html`、`public/resume/en.html`，然后重新生成 PDF |
 
 ## 本地运行

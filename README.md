@@ -16,6 +16,8 @@ Personal website of Jiashao Chen (陈佳绍): Master of Information Technology (
 - Products section (Mianyu, Lijie) with real status labels and a product page
 - Projects with status labels and a detail page each
 - Resume download in Chinese or English
+- Dark theme in the Amber Night (琥珀夜色) palette: follows the system setting on the first visit, then remembers the choice
+- Book list drawn as a shelf, and a blog written in Markdown
 - Readable without JavaScript; no requests to third-party domains
 
 ## Tech stack
@@ -32,6 +34,8 @@ Personal website of Jiashao Chen (陈佳绍): Master of Information Technology (
 | `src/components/Home.astro` | Home page sections |
 | `src/components/MianyuDetail.astro` | Mianyu product page, both languages |
 | `src/data/projects.ts` | Project detail pages: one entry per project, both languages |
+| `src/data/books.ts` | Book list |
+| `src/content/blog/*.md` | Blog posts, one Markdown file each |
 | `src/layouts/Base.astro` | Head, sidebar, footer, scripts |
 | `src/pages/` | Routes; `en/` mirrors the Chinese pages |
 | `public/assets/` | CSS, JS, images, video, resume PDFs |
@@ -44,6 +48,8 @@ Personal website of Jiashao Chen (陈佳绍): Master of Information Technology (
 | Change wording on the home page | `src/i18n/zh.json` and `src/i18n/en.json` |
 | Add a project detail page | Add an entry to `src/data/projects.ts`, images go in `public/assets/img/portfolio/` |
 | Add a product or project card on the home page | `src/components/Home.astro` plus its text keys in both JSON files |
+| Add a book | Add an entry to `src/data/books.ts` |
+| Write a blog post | New file in `src/content/blog/` with `title`, `date`, `summary`; `draft: true` keeps it unpublished |
 | Update the resume | `public/resume/zh.html`, `public/resume/en.html`, then rebuild the PDFs |
 
 ## Run locally
