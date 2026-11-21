@@ -36,8 +36,10 @@ export const books: Book[] = [
     author: { zh: '丹尼尔·凯斯', en: 'Daniel Keyes' },
   },
   {
-    slug: 'zhua-luo-ye',
+    slug: 'before-you-go',
     title: '抓落叶',
+    en: 'Before You Go',
+    author: { zh: '汤米·巴特勒', en: 'Tommy Butler' },
   },
   {
     slug: 'history-of-china',
