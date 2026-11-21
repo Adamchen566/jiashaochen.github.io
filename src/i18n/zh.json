@@ -117,5 +117,9 @@
   "books": "书单",
   "themeDark": "深色",
   "themeLight": "浅色",
-  "themeToggle": "切换深色或浅色主题"
+  "themeToggle": "切换深色或浅色主题",
+  "booksIntro": "读过的书。有些句子想留住，就记在书名下面。",
+  "booksShelf": "书架",
+  "booksAll": "全部书目",
+  "booksCount": "共 {n} 本"
 }

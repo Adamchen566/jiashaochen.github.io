@@ -16,7 +16,7 @@ interface Props {
   /** Pages with an image slider. */
   swiper?: boolean;
   /** Which sidebar entry is highlighted on sub pages. */
-  section?: 'products' | 'portfolio' | 'books';
+  section?: 'products' | 'portfolio';
 }
 
 const { lang, path = '', title, description, home = false, swiper = false, section } = Astro.props;
@@ -35,12 +35,11 @@ const nav = [
   { id: 'portfolio', icon: 'bi-images', label: t.portfolio },
   { id: 'about', icon: 'bi-person', label: t.about },
   { id: 'resume', icon: 'bi-file-earmark-text', label: t.resume },
+  { id: 'books', icon: 'bi-book', label: t.books },
   { id: 'services', icon: 'bi-hdd-stack', label: t.services },
   { id: 'contact', icon: 'bi-envelope', label: t.contact },
 ];
 const activeId = home ? 'hero' : section;
-// Pages of their own, listed after the home page sections.
-const pageLinks = [{ id: 'books', icon: 'bi-book', label: t.books, href: link('books/') }];
 ---
 <!DOCTYPE html>
 <html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
@@ -132,9 +131,6 @@ const pageLinks = [{ id: 'books', icon: 'bi-book', label: t.books, href: link('b
       <ul>
         {nav.map(item => (
           <li><a href={anchor(item.id)} class={item.id === activeId ? 'active' : undefined}><i class={`bi ${item.icon} navicon`}></i>{item.label}</a></li>
-        ))}
-        {pageLinks.map(item => (
-          <li><a href={item.href} class={item.id === activeId ? 'active' : undefined}><i class={`bi ${item.icon} navicon`}></i>{item.label}</a></li>
         ))}
       </ul>
     </nav>

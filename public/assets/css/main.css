@@ -2033,12 +2033,6 @@ section,
   border-bottom-color: var(--border-subtle);
 }
 
-.books-page .books-intro {
-  max-width: 34em;
-  font-size: 17px;
-  margin-bottom: 8px;
-}
-
 .bookshelf {
   overflow-x: auto;
   margin-bottom: 56px;
@@ -2131,7 +2125,7 @@ section,
   padding-bottom: 8px;
 }
 
-.book-list-head h2 {
+.book-list-head h3 {
   font-size: 20px;
   font-weight: 700;
   margin: 0;
@@ -2153,25 +2147,18 @@ section,
   break-inside: avoid;
   padding: 18px 10px;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  scroll-margin-top: 24px;
+  scroll-margin-top: 90px;
 }
 
 .book-list li:target {
   background: color-mix(in srgb, var(--accent-color), transparent 88%);
 }
 
-.book-list h3 {
+.book-list h4 {
   font-family: var(--book-font);
   font-size: 22px;
   font-weight: 700;
   margin: 0 0 4px 0;
-}
-
-.book-list h3 .status-badge {
-  font-family: var(--default-font);
-  font-size: 12px;
-  margin-left: 10px;
-  vertical-align: middle;
 }
 
 .book-list .book-meta {

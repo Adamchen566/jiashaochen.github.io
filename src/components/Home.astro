@@ -3,6 +3,7 @@
 import zh from '../i18n/zh.json';
 import en from '../i18n/en.json';
 import { asset, makeLink } from '../lib/paths';
+import Books from './Books.astro';
 
 interface Props {
   lang: 'zh' | 'en';
@@ -375,6 +376,9 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
       </div>
 
     </section><!-- /Resume Section -->
+
+    <!-- Books Section -->
+    <Books lang={lang} />
 
     <!-- Services Section -->
     <section id="services" class="services section">

@@ -117,5 +117,9 @@
   "books": "Books",
   "themeDark": "Dark",
   "themeLight": "Light",
-  "themeToggle": "Switch between dark and light theme"
+  "themeToggle": "Switch between dark and light theme",
+  "booksIntro": "Books I have read. When a line is worth keeping, it sits under the title.",
+  "booksShelf": "Shelf",
+  "booksAll": "All books",
+  "booksCount": "{n} books"
 }

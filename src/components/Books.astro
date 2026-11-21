@@ -1,0 +1,67 @@
+---
+// Book list section on the home page: a shelf of spines on top, the plain list underneath.
+import zh from '../i18n/zh.json';
+import en from '../i18n/en.json';
+import type { Lang } from '../lib/paths';
+import { books } from '../data/books';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = lang === 'zh' ? zh : en;
+
+// Spine look is derived from the position, so the shelf stays the same between builds.
+const heights = [208, 232, 196, 220, 244, 204, 228, 190, 236, 212];
+const tones = ['cobalt', 'slate', 'snow', 'coat', 'night'];
+const displayTitle = (book: (typeof books)[number]) => (lang === 'zh' ? book.title : book.en ?? book.title);
+const titleLang = (book: (typeof books)[number]) => (lang === 'zh' || !book.en ? 'zh-CN' : 'en');
+---
+<section id="books" class="books section light-background">
+
+  <div class="container section-title" data-aos="fade-up">
+    <h2>{t.books}</h2>
+    <p>{t.booksIntro}</p>
+  </div>
+
+  <div class="container">
+
+    <nav class="bookshelf" aria-label={t.booksShelf}>
+      <ol class="bookshelf-row">
+        {books.map((book, index) => (
+          <li>
+            <a
+              href={`#${book.slug}`}
+              class={`spine spine-${tones[index % tones.length]}`}
+              style={`--spine-height: ${heights[index % heights.length]}px`}
+              lang={titleLang(book)}
+            >
+              <span class="spine-title">{displayTitle(book)}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <div class="book-list-head">
+      <h3>{t.booksAll}</h3>
+      <span>{t.booksCount.replace('{n}', String(books.length))}</span>
+    </div>
+
+    <ol class="book-list">
+      {books.map(book => (
+        <li id={book.slug}>
+          <h4 lang={titleLang(book)}>{displayTitle(book)}</h4>
+          <p class="book-meta">
+            {book.author && <span>{book.author[lang]}</span>}
+            {lang === 'zh' && book.en && <span lang="en">{book.en}</span>}
+            {lang === 'en' && book.en && <span lang="zh-CN">{book.title}</span>}
+          </p>
+          {book.note && <blockquote>{book.note[lang]}</blockquote>}
+        </li>
+      ))}
+    </ol>
+
+  </div>
+
+</section><!-- /Books Section -->

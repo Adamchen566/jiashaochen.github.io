@@ -20,6 +20,8 @@ export default defineConfig({
       '/portfolio-details/course3.html': 'projects/shadow-taxi/',
       '/portfolio-details/work1.html': 'projects/commbank-job-simulation/',
       '/products/mianyu.html': 'products/mianyu/',
+      '/books': '#books',
+      '/en/books': 'en/#books',
     }).map(([from, to]) => [from, `${base.replace(/\/+$/, '')}/${to}`]),
   ),
 });

@@ -1,6 +1,5 @@
-// Book list shown on /books/ and /en/books/.
+// Books Adam has read, shown in the Books section of the home page.
 // To add a book: add an entry here. `en` and `author` are optional; `note` is a line you want to keep from it.
-// Set `read: true` for books you have finished; they get a small mark in the list.
 
 type Text = { zh: string; en: string };
 
@@ -11,8 +10,6 @@ export interface Book {
   en?: string;
   author?: Text;
   note?: Text;
-  /** Finished reading. Leave out when unknown. */
-  read?: boolean;
 }
 
 export const books: Book[] = [
@@ -21,28 +18,24 @@ export const books: Book[] = [
     title: '一人企业',
     en: 'Company of One',
     author: { zh: '保罗·贾维斯', en: 'Paul Jarvis' },
-    read: true,
   },
   {
     slug: 'rework',
     title: '重来',
     en: 'Rework',
     author: { zh: '贾森·弗里德、戴维·海涅迈尔·汉森', en: 'Jason Fried, David Heinemeier Hansson' },
-    read: true,
   },
   {
     slug: 'design-of-everyday-things',
     title: '设计心理学',
     en: 'The Design of Everyday Things',
     author: { zh: '唐纳德·诺曼', en: 'Donald Norman' },
-    read: true,
   },
   {
     slug: 'stories-of-your-life',
     title: '你一生的故事',
     en: 'Stories of Your Life and Others',
     author: { zh: '特德·姜', en: 'Ted Chiang' },
-    read: true,
   },
   {
     slug: 'moments-we-shared',
