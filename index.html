@@ -41,7 +41,7 @@
     <div class="language-switcher">
         <button type="button" class="language" onclick="setLanguage('en')">English</button>
         <button type="button" class="language" onclick="setLanguage('zh')">简体中文</button>
-        <a class="language" href="assets/Resume for Jiashao Chen.pdf" download="Resume for Jiashao Chen.pdf"><span data-i18n="downloadresume"></span></a>
+        <a class="language resume-link" href="assets/resume/Jiashao-Chen-Resume-zh.pdf" download><span data-i18n="downloadresume"></span></a>
 
     </div>
     <i class="header-toggle d-xl-none bi bi-list"></i>
@@ -75,9 +75,10 @@
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span data-i18n="home"></span></a></li>
+        <li><a href="#products"><i class="bi bi-phone navicon"></i><span data-i18n="products"></span></a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span data-i18n="portfolio"></span></a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i><span data-i18n="about"></span></a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span data-i18n="resume"></span></a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span data-i18n="portfolio"></span></a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span data-i18n="services"></span></a></li>
         <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
@@ -111,9 +112,200 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2><span data-i18n="name"></span></h2>
         <p><span data-i18n="heroPrefix"></span> <span class="typed" data-typed-items="a Master of IT (AI) student, a software engineer, an indie developer"></span></p>
+        <p class="hero-tagline"><span data-i18n="heroTagline"></span></p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-hero btn-hero-primary"><span data-i18n="heroCtaProducts"></span></a>
+          <a href="#contact" class="btn-hero"><span data-i18n="heroCtaContact"></span></a>
+        </div>
       </div>
 
     </section><!-- /Hero Section -->
+
+    <!-- Products Section -->
+    <section id="products" class="products section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2><span data-i18n="products"></span></h2>
+        <p><span data-i18n="productsIntro"></span></p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <!-- Product 1: Mianyu (sleep sounds) -->
+          <div class="col-xl-6" data-aos="fade-up" data-aos-delay="100">
+            <article class="product-card h-100">
+              <a href="products/mianyu.html" class="product-media">
+                <img src="assets/img/products/mianyu/promo-01.jpg" alt="眠屿 Mianyu" width="900" height="1200" loading="lazy">
+              </a>
+              <div class="product-body">
+                <span class="status-badge status-beta" data-i18n="mianyuStatus"></span>
+                <h3 data-i18n="mianyuName"></h3>
+                <p class="product-pitch" data-i18n="mianyuPitch"></p>
+                <ul>
+                  <li data-i18n="mianyuF1"></li>
+                  <li data-i18n="mianyuF2"></li>
+                  <li data-i18n="mianyuF3"></li>
+                  <li data-i18n="mianyuF4"></li>
+                </ul>
+                <div class="product-actions">
+                  <a href="products/mianyu.html" class="btn-product btn-product-primary" data-i18n="learnMore"></a>
+                  <a href="assets/img/portfolio/wechat.jpg" class="btn-product glightbox" data-i18n="joinBeta"></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Product 2: Lijie (strength training log) -->
+          <div class="col-xl-6" data-aos="fade-up" data-aos-delay="200">
+            <article class="product-card h-100">
+              <div class="product-media product-media-steps" aria-hidden="true">
+                <span data-i18n="lijieStep1"></span>
+                <i class="bi bi-arrow-down"></i>
+                <span data-i18n="lijieStep2"></span>
+                <i class="bi bi-arrow-down"></i>
+                <span data-i18n="lijieStep3"></span>
+              </div>
+              <div class="product-body">
+                <span class="status-badge status-planned" data-i18n="lijieStatus"></span>
+                <h3 data-i18n="lijieName"></h3>
+                <p class="product-pitch" data-i18n="lijiePitch"></p>
+                <ul>
+                  <li data-i18n="lijieF1"></li>
+                  <li data-i18n="lijieF2"></li>
+                  <li data-i18n="lijieF3"></li>
+                </ul>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/wechat.jpg" class="btn-product btn-product-primary glightbox" data-i18n="joinWaitlist"></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- /Products Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section light-background">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2><span data-i18n="portfolio"></span></h2>
+        <p><span data-i18n="extract6"></span></p>
+      </div>
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <article class="project-card h-100">
+              <div class="project-icon"><i class="bi bi-calendar-event"></i></div>
+              <span class="status-badge status-live" data-i18n="vctStatus"></span>
+              <h3 data-i18n="vctName"></h3>
+              <p data-i18n="vctDesc"></p>
+              <ul class="tag-list"><li>Python</li><li>GitHub Actions</li><li>iCal</li></ul>
+              <div class="project-links">
+                <a href="portfolio-details/opensource1.html" data-i18n="details"></a>
+                <a href="https://github.com/Adamchen566/VCT-matches-to-iCal" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <article class="project-card h-100">
+              <div class="project-icon"><i class="bi bi-people"></i></div>
+              <span class="status-badge status-beta" data-i18n="avalonStatus"></span>
+              <h3 data-i18n="avalonName"></h3>
+              <p data-i18n="avalonDesc"></p>
+              <ul class="tag-list"><li>React</li><li>TypeScript</li><li>FastAPI</li><li>PostgreSQL</li><li>WebSocket</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/Adamchen566/GameMaster" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <article class="project-card h-100">
+              <div class="project-icon"><i class="bi bi-grid-3x3-gap"></i></div>
+              <span class="status-badge status-done" data-i18n="mahjongStatus"></span>
+              <h3 data-i18n="mahjongName"></h3>
+              <p data-i18n="mahjongDesc"></p>
+              <ul class="tag-list"><li>Python</li></ul>
+              <div class="project-links">
+                <a href="https://github.com/Adamchen566/mahjong_AI" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <h3 class="more-projects-title" data-aos="fade-up"><span data-i18n="moreProjects"></span></h3>
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Course Projects 1: EODP machine learning-->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/course-1.jpg" class="img-fluid" alt="Online bookstore analysis — machine learning course project" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Machine Learning</h4>
+                  <p>Online Bookstore Analysis</p>
+                  <a href="assets/img/portfolio/course-1.jpg" title="Machine Learning: Online Bookstore Analysis" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details/course1.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Course Project 2: Database System -->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/course-2.jpg" class="img-fluid" alt="OGRE — database systems course project" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Database System</h4>
+                  <p>OGRE: Open Generative-AI Responsible Environment</p>
+                  <a href="assets/img/portfolio/course-2.jpg" title="Database System: Open Generative-AI Responsible Environment" data-gallery="portfolio-gallery-project" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details/course2.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Course Project 3: OOP Java -->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/course-3.jpg" class="img-fluid" alt="Shadow Taxi — Java game" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Object-Oriented Programming</h4>
+                  <p>Shadow Taxi</p>
+                  <a href="assets/img/portfolio/course-3.jpg" title="Object-Oriented Programming: Shadow Taxi" data-gallery="portfolio-gallery-project" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details/course3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Work 1: CBA job simulation -->
+            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Work">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/work-1.jpg" class="img-fluid" alt="Commonwealth Bank job simulation certificate" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Job simulation</h4>
+                  <p>CommonwealthBank · <span data-i18n="nicknameNote"></span></p>
+                  <a href="assets/img/portfolio/work-1.jpg" title="CommonwealthBank Job simulation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details/work1.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -121,7 +313,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2><span data-i18n="about"></span>
-        <a class="download" href="assets/Resume for Jiashao Chen.pdf" download="Resume for Jiashao Chen.pdf"><span data-i18n="downloadresume"></span></a></h2>
+        <a class="download resume-link" href="assets/resume/Jiashao-Chen-Resume-zh.pdf" download><span data-i18n="downloadresume"></span></a></h2>
         <p><span data-i18n="about1"></span></p>
       </div><!-- End Section Title -->
 
@@ -164,131 +356,41 @@
 
     </section><!-- /About Section -->
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
-              <br><strong><span style="font-size: 24px;" data-i18n="data1"></span></strong><br><span data-i18n="explain1"></span>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="1" class="purecounter"></span>
-              <br><strong><span style="font-size: 24px;" data-i18n="data2"></span></strong><br><span data-i18n="explain2"></span>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="52" data-purecounter-duration="1" class="purecounter"></span>
-              <br><strong><span style="font-size: 24px;" data-i18n="data3"></span></strong><br><span data-i18n="explain3"></span>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <br><strong><span style="font-size: 24px;" data-i18n="data4"></span></strong><br><span data-i18n="explain4"></span>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
     <!-- Skills Section -->
     <section id="skills" class="skills section light-background">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2><span data-i18n="skills"></span></h2>
         <p><span data-i18n="extract2"></span></p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Python</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>C</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Java</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Live Server</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4 data-i18n="skillLang"></h4>
+              <ul class="tag-list"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C</li><li>SQL</li></ul>
+            </div>
           </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Linux</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            
-            <div class="progress">
-              <span class="skill"><span>Docker</span> <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4 data-i18n="skillFront"></h4>
+              <ul class="tag-list"><li>React</li><li>Vite</li><li>Capacitor (Android)</li><li>HTML / CSS</li></ul>
+            </div>
           </div>
-
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4 data-i18n="skillBack"></h4>
+              <ul class="tag-list"><li>Node.js (Fastify)</li><li>FastAPI</li><li>SQLite</li><li>PostgreSQL</li><li>WebSocket</li></ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="skill-group h-100">
+              <h4 data-i18n="skillTools"></h4>
+              <ul class="tag-list"><li>Git</li><li>GitHub Actions</li><li>Linux</li><li>Docker</li><li data-i18n="tencentCloud"></li></ul>
+            </div>
+          </div>
         </div>
-
       </div>
 
     </section><!-- /Skills Section -->
@@ -339,25 +441,24 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="resume-title"><span data-i18n="experience"></span></h3>
             <div class="resume-item">
-              <h4><span data-i18n="project1"></span></h4>
-              <h5>2023</h5>
+              <h4><span data-i18n="exp1"></span></h4>
+              <h5><span data-i18n="exp1Time"></span></h5>
               <ul>
-                <li><span data-i18n="project1_1"></span></li>
-                <li><span data-i18n="project1_2"></span></li>
-                <li><span data-i18n="project1_3"></span></li>
-                <li><span data-i18n="project1_4"></span></li>
+                <li><span data-i18n="exp1_1"></span></li>
+                <li><span data-i18n="exp1_2"></span></li>
+                <li><span data-i18n="exp1_3"></span></li>
               </ul>
-            </div><!-- Edn Resume Item -->
+            </div><!-- End Resume Item -->
 
             <div class="resume-item">
-              <h4><span data-i18n="project2"></span></h4>
-              <h5>2024</h5>
+              <h4><span data-i18n="exp2"></span></h4>
+              <h5><span data-i18n="exp2Time"></span></h5>
               <ul>
-                <li><span data-i18n="project2_1"></span></li>
-                <li><span data-i18n="project2_2"></span></li>
-                <li><span data-i18n="project2_3"></span></li>
+                <li><span data-i18n="exp2_1"></span></li>
+                <li><span data-i18n="exp2_2"></span></li>
+                <li><span data-i18n="exp2_3"></span></li>
               </ul>
-            </div><!-- Edn Resume Item -->
+            </div><!-- End Resume Item -->
 
           </div>
 
@@ -366,101 +467,6 @@
       </div>
 
     </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2><span data-i18n="portfolio"></span></h2>
-        <p><span data-i18n="extract6"></span></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active"><span data-i18n="all"></span></li>
-            <li data-filter=".filter-Open-Source"><span data-i18n="opensource"></span></li>
-            <li data-filter=".filter-Course"><span data-i18n="course"></span></li>
-            <li data-filter=".filter-Work"><span data-i18n="works"></span></li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <!-- Open Source Project 1: Python Web Crawler -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Open-Source">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/opensource-1.jpg" class="img-fluid" alt="VCT matches to iCal — Python web crawler" loading="lazy">
-                <div class="portfolio-info">
-                  <h4>Crawler</h4>
-                  <p>Python Web Crawler</p>
-                  <a href="assets/img/portfolio/opensource-1.jpg" title="Project 1: Web Crawler" data-gallery="portfolio-gallery-project" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details/opensource1.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Course Projects 1: EODP machine learning-->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Course">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/course-1.jpg" class="img-fluid" alt="Online bookstore analysis — machine learning course project" loading="lazy">
-                <div class="portfolio-info">
-                  <h4>Machine Learning</h4>
-                  <p>Online Bookstore Analysis</p>
-                  <a href="assets/img/portfolio/course-1.jpg" title="Machine Learning: Online Bookstore Analysis" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details/course1.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Course Project 2: Database System -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Course">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/course-2.jpg" class="img-fluid" alt="OGRE — database systems course project" loading="lazy">
-                <div class="portfolio-info">
-                  <h4>Database System</h4>
-                  <p>OGRE: Open Generative-AI Responsible Environment</p>
-                  <a href="assets/img/portfolio/course-2.jpg" title="Database System: Open Generative-AI Responsible Environment" data-gallery="portfolio-gallery-project" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details/course2.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Course Project 3: OOP Java -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Course">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/course-3.jpg" class="img-fluid" alt="Shadow Taxi — Java game" loading="lazy">
-                <div class="portfolio-info">
-                  <h4>Object-Oriented Programming</h4>
-                  <p>Shadow Taxi</p>
-                  <a href="assets/img/portfolio/course-3.jpg" title="Object-Oriented Programming: Shadow Taxi" data-gallery="portfolio-gallery-project" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details/course3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Work 1: CBA job simulation -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Work">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/work-1.jpg" class="img-fluid" alt="Commonwealth Bank job simulation certificate" loading="lazy">
-                <div class="portfolio-info">
-                  <h4>Job simulation</h4>
-                  <p>CommonwealthBank</p>
-                  <a href="assets/img/portfolio/work-1.jpg" title="CommonwealthBank Job simulation" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details/work1.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
 
     <!-- Services Section -->
     <section id="services" class="services section">
@@ -476,63 +482,32 @@
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-phone"></i></div>
             <div>
-              <h4 class="title"><span data-i18n="software"></span></h4>
-              <p class="description"><span data-i18n="software1"></span></p>
-              <p class="description"><span data-i18n="software2"></span></p>
-              <p class="description"><span data-i18n="software3"></span></p>
+              <h4 class="title"><span data-i18n="svc1"></span></h4>
+              <p class="description"><span data-i18n="svc1_1"></span></p>
+              <p class="description"><span data-i18n="svc1_2"></span></p>
+              <p class="description"><span data-i18n="svc1_3"></span></p>
             </div>
-          </div>
-          <!-- End Service Item -->
+          </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-window-stack"></i></div>
             <div>
-              <h4 class="title"><span data-i18n="consulting"></span></h4>
-              <p class="description"><span data-i18n="consulting1"></span></p>
-              <p class="description"><span data-i18n="consulting2"></span></p>
-              <p class="description"><span data-i18n="consulting3"></span></p>
+              <h4 class="title"><span data-i18n="svc2"></span></h4>
+              <p class="description"><span data-i18n="svc2_1"></span></p>
+              <p class="description"><span data-i18n="svc2_2"></span></p>
+              <p class="description"><span data-i18n="svc2_3"></span></p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-arrow-repeat"></i></div>
             <div>
-              <h4 class="title"><span data-i18n="ds"></span></h4>
-              <p class="description"><span data-i18n="ds1"></span></p>
-              <p class="description"><span data-i18n="ds2"></span></p>
-              <p class="description"><span data-i18n="ds3"></span></p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
-            <div>
-              <h4 class="title"><span data-i18n="game"></span></h4>
-                <p class="description"><span data-i18n="game1"></span></p>
-                <p class="description"><span data-i18n="game2"></span></p>
-                <p class="description"><span data-i18n="game3"></span></p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-            <div>
-              <h4 class="title"><span data-i18n="create"></span></h4>
-                <p class="description"><span data-i18n="create1"></span></p>
-                <p class="description"><span data-i18n="create2"></span></p>
-                <p class="description"><span data-i18n="create3"></span></p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>
-              <h4 class="title"><span data-i18n="service"></span></h4>
-                <p class="description"><span data-i18n="service1"></span></p>
-                <p class="description"><span data-i18n="service2"></span></p>
-                <p class="description"><span data-i18n="service3"></span></p>
+              <h4 class="title"><span data-i18n="svc3"></span></h4>
+              <p class="description"><span data-i18n="svc3_1"></span></p>
+              <p class="description"><span data-i18n="svc3_2"></span></p>
+              <p class="description"><span data-i18n="svc3_3"></span></p>
             </div>
           </div><!-- End Service Item -->
 
@@ -556,7 +531,7 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-5">
+          <div class="col-lg-7">
 
             <div class="info-wrap">
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
@@ -597,53 +572,13 @@
             </div>
           </div>
 
-          <div class="col-lg-7">
-            <form 
-              action="https://formspree.io/f/xbllbovw" 
-              method="POST" 
-              id="contact-form" 
-              data-aos="fade-up" 
-              data-aos-delay="200"
-            >
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2"><span data-i18n="yourname"></span></label>
-                  <input type="text" name="name" id="name-field" class="form-control" required>
-                </div>
-          
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2"><span data-i18n="youremail"></span></label>
-                  <input type="email" class="form-control" name="email" id="email-field" required>
-                </div>
-          
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2"><span data-i18n="yoursubject"></span></label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required>
-                </div>
-          
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2"><span data-i18n="yourmessage"></span></label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
-                </div>
-          
-                <input type="hidden" name="_subject" value="New Contact Form Submission">
-          
-                <div class="col-md-12 text-center">
-                  <div class="form-status loading" role="status" hidden><span data-i18n="loading"></span></div>
-                  <div class="form-status error-message" role="alert" hidden><span data-i18n="error"></span></div>
-                  <div class="form-status sent-message" role="status" hidden><span data-i18n="emailsent"></span></div>
-          
-                  <button type="submit" class="btn-send">
-                    <span data-i18n="send"></span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                      <path d="M22 2 11 13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M22 2 15 22 11 13 2 9z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </button>
-                  <a class="download" href="assets/Resume for Jiashao Chen.pdf" download="Resume for Jiashao Chen.pdf"><span data-i18n="downloadresume"></span></a>
-                </div>
-              </div>
-            </form>
+          <div class="col-lg-5">
+            <div class="wechat-card text-center" data-aos="fade-up" data-aos-delay="200">
+              <h3><i class="bi bi-wechat"></i> <span data-i18n="wechatScan"></span></h3>
+              <a href="assets/img/portfolio/wechat.jpg" class="glightbox"><img src="assets/img/portfolio/wechat.jpg" alt="WeChat QR code" loading="lazy"></a>
+              <p><span data-i18n="wechatNote"></span></p>
+              <a class="download resume-link" href="assets/resume/Jiashao-Chen-Resume-zh.pdf" download><span data-i18n="downloadresume"></span></a>
+            </div>
           </div>
 
         </div>
@@ -675,8 +610,6 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>

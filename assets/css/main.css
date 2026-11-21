@@ -129,33 +129,6 @@ h6 {
   cursor: pointer; /* 鼠标悬停时显示手型 */
 }
 
-/* Contact form status messages */
-.form-status {
-  padding: 12px 15px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.form-status[hidden] {
-  display: none;
-}
-
-.form-status.loading {
-  background: var(--surface-color);
-  color: var(--default-color);
-}
-
-.form-status.error-message {
-  background: #df1529;
-  color: #ffffff;
-}
-
-.form-status.sent-message {
-  background: #059652;
-  color: #ffffff;
-}
-
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -662,7 +635,7 @@ section,
   font-size: 26px;
 }
 
-.hero p span {
+.hero p span.typed {
   letter-spacing: 1px;
   border-bottom: 2px solid var(--accent-color);
 }
@@ -1394,4 +1367,347 @@ section,
   background: #ccc; /* 灰色背景 */
   cursor: not-allowed; /* 禁用时显示不可点击的指针 */
   box-shadow: none;
+}
+
+/*--------------------------------------------------------------
+# Hero tagline and actions
+--------------------------------------------------------------*/
+.hero .hero-tagline {
+  margin: 14px 0 0 0;
+  font-size: 18px;
+  max-width: 560px;
+}
+
+.hero .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.hero .btn-hero {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 2px solid var(--contrast-color);
+  color: var(--contrast-color);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero .btn-hero:hover,
+.hero .btn-hero-primary {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.hero .btn-hero-primary:hover {
+  background: color-mix(in srgb, var(--accent-color), #000 15%);
+  border-color: color-mix(in srgb, var(--accent-color), #000 15%);
+}
+
+/*--------------------------------------------------------------
+# Status badges and tags (products, projects, skills)
+--------------------------------------------------------------*/
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.status-live {
+  background: #dff5e7;
+  color: #0b6b34;
+}
+
+.status-beta {
+  background: #dceefa;
+  color: #0b5c8a;
+}
+
+.status-planned {
+  background: #fdf0d5;
+  color: #8a5a00;
+}
+
+.status-done {
+  background: #e8e9ee;
+  color: #3d4250;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-list li {
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--heading-color);
+}
+
+/*--------------------------------------------------------------
+# Products Section
+--------------------------------------------------------------*/
+.product-card {
+  display: flex;
+  background: var(--surface-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+}
+
+.product-card .product-media {
+  flex: 0 0 38%;
+  max-width: 38%;
+  display: block;
+  background: #0b1a1e;
+}
+
+.product-card .product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-card .product-media-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 12px;
+  background: linear-gradient(160deg, #1d2b3a, #0f1720);
+  color: #ffffff;
+  min-height: 260px;
+}
+
+.product-card .product-media-steps span {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+}
+
+.product-card .product-media-steps i {
+  opacity: 0.6;
+}
+
+.product-card .product-body {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 12px 0 8px 0;
+}
+
+.product-card .product-pitch {
+  margin-bottom: 12px;
+}
+
+.product-card ul {
+  padding-left: 18px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.product-card ul li + li {
+  margin-top: 4px;
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn-product {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.btn-product:hover,
+.btn-product-primary {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.btn-product-primary:hover {
+  background: color-mix(in srgb, var(--accent-color), #000 15%);
+  border-color: color-mix(in srgb, var(--accent-color), #000 15%);
+  color: var(--contrast-color);
+}
+
+@media (max-width: 575px) {
+  .product-card {
+    flex-direction: column;
+  }
+
+  .product-card .product-media {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .product-card .product-media img {
+    max-height: 320px;
+  }
+
+  .product-card .product-media-steps {
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .product-card .product-media-steps i {
+    transform: rotate(-90deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Project cards and skill groups
+--------------------------------------------------------------*/
+.project-card,
+.skill-group {
+  background: var(--surface-color);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.06);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-card .project-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 14px;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  color: var(--accent-color);
+}
+
+.project-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 10px 0 8px 0;
+}
+
+.project-card p {
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.project-card .project-links {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.more-projects-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 48px 0 20px 0;
+}
+
+.skill-group h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/*--------------------------------------------------------------
+# Product detail page
+--------------------------------------------------------------*/
+.product-detail .product-video {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  background: #000;
+}
+
+.product-detail h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 32px 0 14px 0;
+}
+
+.product-detail .product-notes {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.product-detail .promo-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/*--------------------------------------------------------------
+# Contact: WeChat card
+--------------------------------------------------------------*/
+.contact .wechat-card {
+  background: var(--surface-color);
+  padding: 30px;
+  height: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact .wechat-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.contact .wechat-card h3 i {
+  color: #07c160;
+}
+
+.contact .wechat-card img {
+  width: 100%;
+  max-width: 240px;
+  border-radius: 8px;
+}
+
+.contact .wechat-card p {
+  margin: 14px 0 18px 0;
+  font-size: 14px;
 }

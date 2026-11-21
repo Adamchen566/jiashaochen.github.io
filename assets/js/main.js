@@ -136,39 +136,6 @@
   }
 
   /**
-   * Contact form: submit to Formspree without leaving the page
-   */
-  const contactForm = document.querySelector('#contact-form');
-  if (contactForm) {
-    const statusOf = name => contactForm.querySelector('.form-status.' + name);
-    const showStatus = name => {
-      ['loading', 'error-message', 'sent-message'].forEach(item => {
-        statusOf(item).hidden = item !== name;
-      });
-    };
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const submitBtn = contactForm.querySelector('[type="submit"]');
-      submitBtn.disabled = true;
-      showStatus('loading');
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        contactForm.reset();
-        showStatus('sent-message');
-      } catch (err) {
-        showStatus('error-message');
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
-  }
-
-  /**
    * Initiate Pure Counter
    */
   if (typeof PureCounter !== 'undefined') {

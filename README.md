@@ -14,14 +14,14 @@ Personal website of Jiashao Chen (陈佳绍): Master of Information Technology (
 
 - Chinese / English switch (follows the browser language on the first visit)
 - Responsive layout for phone, tablet and desktop
-- Portfolio with category filters and a detail page per project
-- Resume download
-- Contact form (Formspree)
+- Products section (Mianyu, Lijie) with real status labels and a product page
+- Projects with status labels and detail pages
+- Resume download in Chinese or English, following the page language
 
 ## Tech stack
 
 - Static HTML, CSS and JavaScript, no build step
-- Bootstrap 5, with AOS, GLightbox, Isotope, Swiper, Typed.js and PureCounter in `assets/vendor`
+- Bootstrap 5, with AOS, GLightbox, Isotope, Swiper and Typed.js in `assets/vendor`
 - Hosted on GitHub Pages
 
 ## Structure
@@ -29,9 +29,11 @@ Personal website of Jiashao Chen (陈佳绍): Master of Information Technology (
 | Path | Contents |
 |---|---|
 | `index.html` | The single main page |
+| `products/` | One page per product |
 | `portfolio-details/` | One page per project |
+| `resume/` | Resume source (HTML + CSS); the PDFs live in `assets/resume/` |
 | `assets/js/i18n.js` | All Chinese and English text of the main page |
-| `assets/js/main.js` | Page behaviour (menu, typing effect, filters, contact form) |
+| `assets/js/main.js` | Page behaviour (menu, typing effect, lightbox, sliders) |
 | `assets/css/main.css` | Styles |
 | `assets/img/` | Images |
 
@@ -41,6 +43,14 @@ Open `index.html` in a browser, or serve the folder:
 
 ```bash
 python -m http.server 8000
+```
+
+## Rebuild the resume PDFs
+
+Edit `resume/zh.html` or `resume/en.html`, serve the folder locally (see above), then print each page to PDF with headless Chrome:
+
+```bash
+chrome --headless=new --no-pdf-header-footer --print-to-pdf=assets/resume/Jiashao-Chen-Resume-zh.pdf http://localhost:8000/resume/zh.html
 ```
 
 ## Projects

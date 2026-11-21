@@ -1,0 +1,200 @@
+/* Resume source. Printed to PDF with a headless browser, see README. */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+  font-size: 9.6pt;
+  line-height: 1.5;
+  color: #272829;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ---------- sidebar ---------- */
+.side {
+  flex: 0 0 62mm;
+  background: #040b14;
+  color: #e9edf2;
+  padding: 12mm 7mm 10mm 8mm;
+}
+
+.side .photo {
+  width: 30mm;
+  height: 30mm;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 5mm auto;
+  border: 1.2mm solid #2c2f3f;
+}
+
+.side h2 {
+  font-size: 10pt;
+  letter-spacing: 0.5pt;
+  color: #ffffff;
+  border-bottom: 0.3mm solid #149ddd;
+  padding-bottom: 1mm;
+  margin: 6mm 0 2.5mm 0;
+}
+
+.side h2:first-of-type {
+  margin-top: 0;
+}
+
+.side ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side li {
+  margin-bottom: 1.4mm;
+  word-break: break-all;
+}
+
+.side .label {
+  display: block;
+  font-size: 8pt;
+  color: #a8a9b4;
+}
+
+.side .group {
+  margin-bottom: 2.2mm;
+}
+
+.side .group strong {
+  display: block;
+  color: #ffffff;
+  font-size: 9pt;
+}
+
+/* ---------- main ---------- */
+.main {
+  flex: 1;
+  padding: 12mm 10mm 10mm 9mm;
+}
+
+.main h1 {
+  font-size: 23pt;
+  line-height: 1.15;
+  margin: 0;
+  color: #050d18;
+}
+
+.main h1 small {
+  font-size: 12pt;
+  font-weight: 400;
+  color: #5a6270;
+  margin-left: 2mm;
+}
+
+.main .title {
+  font-size: 11.5pt;
+  color: #149ddd;
+  font-weight: 600;
+  margin: 1.5mm 0 3.5mm 0;
+}
+
+.main .summary {
+  margin: 0 0 1mm 0;
+}
+
+.main h2 {
+  font-size: 11.5pt;
+  color: #050d18;
+  border-bottom: 0.4mm solid #149ddd;
+  padding-bottom: 0.8mm;
+  margin: 4.5mm 0 2.5mm 0;
+}
+
+.item {
+  margin-bottom: 2.6mm;
+  break-inside: avoid;
+}
+
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4mm;
+}
+
+.item-head strong {
+  font-size: 10.2pt;
+  color: #050d18;
+}
+
+.item-head span {
+  flex: none;
+  font-size: 8.6pt;
+  color: #5a6270;
+}
+
+.item .sub {
+  color: #5a6270;
+  font-size: 9pt;
+}
+
+.item ul {
+  margin: 0.8mm 0 0 0;
+  padding-left: 4.2mm;
+}
+
+.item li {
+  margin-bottom: 0.4mm;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 8pt;
+  font-weight: 600;
+  padding: 0 1.8mm;
+  border-radius: 3mm;
+  margin-left: 1.5mm;
+  vertical-align: 0.3mm;
+}
+
+.tag-live {
+  background: #dff5e7;
+  color: #0b6b34;
+}
+
+.tag-beta {
+  background: #dceefa;
+  color: #0b5c8a;
+}
+
+.tag-planned {
+  background: #fdf0d5;
+  color: #8a5a00;
+}
+
+.tag-done {
+  background: #e8e9ee;
+  color: #3d4250;
+}
