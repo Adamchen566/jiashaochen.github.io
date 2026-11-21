@@ -2167,6 +2167,13 @@ section,
   margin: 0 0 4px 0;
 }
 
+.book-list h3 .status-badge {
+  font-family: var(--default-font);
+  font-size: 12px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
 .book-list .book-meta {
   margin: 0;
   font-size: 14px;

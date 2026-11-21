@@ -20,6 +20,7 @@ const ui = {
     shelf: '书架',
     list: '全部书目',
     count: (n: number) => `共 ${n} 本`,
+    read: '已读',
   },
   en: {
     site: 'Jiashao Chen',
@@ -30,6 +31,7 @@ const ui = {
     shelf: 'Shelf',
     list: 'All books',
     count: (n: number) => `${n} books`,
+    read: 'Read',
   },
 }[lang];
 
@@ -82,7 +84,7 @@ const spineTitle = (book: (typeof books)[number]) => (lang === 'zh' ? book.title
       <ol class="book-list">
         {books.map(book => (
           <li id={book.slug}>
-            <h3 lang={lang === 'zh' || !book.en ? 'zh-CN' : 'en'}>{spineTitle(book)}</h3>
+            <h3 lang={lang === 'zh' || !book.en ? 'zh-CN' : 'en'}>{spineTitle(book)}{book.read && <span class="status-badge status-done" lang={lang === 'zh' ? 'zh-CN' : 'en'}>{ui.read}</span>}</h3>
             <p class="book-meta">
               {book.author && <span>{book.author[lang]}</span>}
               {lang === 'zh' && book.en && <span lang="en">{book.en}</span>}
