@@ -93,22 +93,87 @@
    * Init typed.js
    */
   const selectTyped = document.querySelector('.typed');
-  if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
-      strings: typed_strings,
+  let typedInstance = null;
+
+  /**
+   * (Re)start the typing effect. i18n.js calls this with the roles of the
+   * current language; without arguments it falls back to data-typed-items.
+   */
+  window.initTyped = function(strings) {
+    if (!selectTyped) return;
+    if (!Array.isArray(strings) || !strings.length) {
+      strings = selectTyped.getAttribute('data-typed-items').split(',').map(item => item.trim());
+    }
+    if (typedInstance) {
+      typedInstance.destroy();
+    }
+    typedInstance = new Typed('.typed', {
+      strings: strings,
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 2000
+    });
+  };
+  window.initTyped();
+
+  /**
+   * Age and footer year are computed, so they never go stale
+   */
+  const ageEl = document.querySelector('#age[data-birthday]');
+  if (ageEl) {
+    const [year, month, day] = ageEl.dataset.birthday.split('-').map(Number);
+    const now = new Date();
+    let age = now.getFullYear() - year;
+    if (now.getMonth() + 1 < month || (now.getMonth() + 1 === month && now.getDate() < day)) {
+      age--;
+    }
+    ageEl.textContent = age;
+  }
+  const yearEl = document.querySelector('#year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  /**
+   * Contact form: submit to Formspree without leaving the page
+   */
+  const contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    const statusOf = name => contactForm.querySelector('.form-status.' + name);
+    const showStatus = name => {
+      ['loading', 'error-message', 'sent-message'].forEach(item => {
+        statusOf(item).hidden = item !== name;
+      });
+    };
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector('[type="submit"]');
+      submitBtn.disabled = true;
+      showStatus('loading');
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        contactForm.reset();
+        showStatus('sent-message');
+      } catch (err) {
+        showStatus('error-message');
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   }
 
   /**
    * Initiate Pure Counter
    */
-  new PureCounter();
+  if (typeof PureCounter !== 'undefined') {
+    new PureCounter();
+  }
 
   /**
    * Animate the skills items on reveal
@@ -175,6 +240,11 @@
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
+
+      // Loop mode needs at least two slides
+      if (swiperElement.querySelectorAll(".swiper-slide").length < 2) {
+        config.loop = false;
+      }
 
       if (swiperElement.classList.contains("swiper-tab")) {
         initSwiperWithCustomPagination(swiperElement, config);

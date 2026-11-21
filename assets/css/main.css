@@ -12,9 +12,10 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --system-font: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --default-font: "Roboto", var(--system-font);
+  --heading-font: "Raleway", var(--system-font);
+  --nav-font: "Poppins", var(--system-font);
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -87,15 +88,31 @@ h6 {
   font-family: var(--heading-font);
 }
 
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
 .language {
-  margin: 0 10px;
-  background-color: #000000; /* 背景色 */
-  color: rgb(174, 173, 173); /* 文字颜色 */
-  padding: 20px 20px; /* 内边距 */
-  border: none; /* 去掉边框 */
-  border-radius: 5px; /* 圆角 */
-  font-size: 20px; /* 字体大小 */
-  cursor: pointer; /* 鼠标悬停时显示手型 */
+  display: inline-block;
+  background-color: color-mix(in srgb, var(--default-color), transparent 90%);
+  color: var(--default-color);
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.language:hover {
+  color: var(--contrast-color);
+  background: var(--accent-color);
 }
 
 .download {
@@ -111,6 +128,34 @@ h6 {
   transition: all 0.3s ease; /* 平滑过渡效果 */
   cursor: pointer; /* 鼠标悬停时显示手型 */
 }
+
+/* Contact form status messages */
+.form-status {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.form-status[hidden] {
+  display: none;
+}
+
+.form-status.loading {
+  background: var(--surface-color);
+  color: var(--default-color);
+}
+
+.form-status.error-message {
+  background: #df1529;
+  color: #ffffff;
+}
+
+.form-status.sent-message {
+  background: #059652;
+  color: #ffffff;
+}
+
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -216,12 +261,19 @@ h6 {
   justify-content: center;
   background: color-mix(in srgb, var(--default-color), transparent 90%);
   color: var(--default-color);
-  margin: 0 2px;
+  margin: 0 1px;
   border-radius: 50%;
   text-align: center;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   transition: 0.3s;
+}
+
+.header .social-links a.social-text {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .header .social-links a:hover {

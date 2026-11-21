@@ -4,59 +4,50 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title id="welcome">Jiashao's Personal Webpage</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- i18next CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.10/dist/umd/i18next.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.3/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+  <title>Jiashao Chen 陈佳绍 | Personal Website</title>
+  <meta name="description" content="Jiashao Chen (陈佳绍) — Master of Information Technology (AI) student at the University of Melbourne. Software engineer and indie developer. 墨尔本大学信息技术硕士（人工智能方向）在读，软件工程师、独立开发者。">
+  <meta name="keywords" content="Jiashao Chen, 陈佳绍, software engineer, University of Melbourne, portfolio, 个人网站">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
-  <!-- Fonts -->
+  <!-- Fonts: Google Fonts hidden for now (unreliable in mainland China); system fonts are used.
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  -->
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF 文件下载</title>
-
   <!-- =======================================================
-  * Authoer Name: Jiashao Chen(Adam)
-  * Updated: 12/Dec 2024
+  * Author Name: Jiashao Chen (Adam)
+  * Updated: 21 Nov 2026
+  * Based on the iPortfolio template by BootstrapMade.com
   ======================================================== -->
 </head>
 
 <body class="index-page">
 
-  <button class="scroll-top" title="Go to top"><i class="bi bi-chevron-up"></i></button>
   <header id="header" class="header dark-background d-flex flex-column">
     <div class="language-switcher">
-        <button class = 'language' onclick="setLanguage('en')">English</button>
-        <button class = 'language' onclick="setLanguage('zh')">简体中文</button>
+        <button type="button" class="language" onclick="setLanguage('en')">English</button>
+        <button type="button" class="language" onclick="setLanguage('zh')">简体中文</button>
         <a class="language" href="assets/Resume for Jiashao Chen.pdf" download="Resume for Jiashao Chen.pdf"><span data-i18n="downloadresume"></span></a>
 
     </div>
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/my-profile-img-sm.jpg" alt="Jiashao Chen" width="240" height="240" class="img-fluid rounded-circle">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -71,11 +62,14 @@
       <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
       <a href="#" class="google-plus"><i class="bi bi-skype"></i></a> -->
       <!-- WeChat -->
-      <a href="assets/img/portfolio/wechat.jpg" target="_blank" title="WeChat"><i class="fab fa-weixin" onclick="togglePopup()"></i></a>
+      <a href="assets/img/portfolio/wechat.jpg" class="glightbox" title="WeChat" aria-label="WeChat"><i class="bi bi-wechat"></i></a>
       <!-- GitHub -->
-      <a href="https://github.com/Adamchen566" target="_blank" rel="noopener" title="GitHub Profile"><i class="bi bi-github"></i></a>
+      <a href="https://github.com/Adamchen566" target="_blank" rel="noopener" title="GitHub Profile" aria-label="GitHub"><i class="bi bi-github"></i></a>
       <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/" target="_blank" rel="noopener" title="LinkedIn Profile" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.xiaohongshu.com/user/profile/5fa791970000000001005585" target="_blank" rel="noopener" class="social-text" title="小红书" aria-label="小红书">小红书</a>
+      <a href="https://space.bilibili.com/392777600" target="_blank" rel="noopener" class="social-text" title="哔哩哔哩" aria-label="哔哩哔哩">B站</a>
+      <a href="https://x.com/xhl566" target="_blank" rel="noopener" title="X" aria-label="X"><i class="bi bi-twitter-x"></i></a>
     </div>
 
     <nav id="navmenu" class="navmenu">
@@ -112,12 +106,11 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" fetchpriority="high">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2><span data-i18n="name"></span></h2>
-        <p>I'm <span class="typed" data-typed-items="Undergraduate Student
-          , Software Engineer, Algorithm designer">Undergraduate Student</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <p><span data-i18n="heroPrefix"></span> <span class="typed" data-typed-items="a Master of IT (AI) student, a software engineer, an indie developer"></span></p>
       </div>
 
     </section><!-- /Hero Section -->
@@ -136,7 +129,7 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="Jiashao Chen" width="800" height="800" loading="lazy">
           </div>
           <div class="col-lg-8 content">
             <h2><span data-i18n="about2"></span></h2>
@@ -147,16 +140,16 @@
               <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="Birthday"></span></strong> <span>06/06/2005</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="website"></span></strong> <span><a href="https://github.com/Adamchen566">Github Pages</a></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="website"></span></strong> <span><a href="https://github.com/Adamchen566" target="_blank" rel="noopener">GitHub</a></span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="phone"></span></strong> <span>+61 4 6690 0373</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="city"></span></strong> <span><span data-i18n="melbourne"></span></span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="age"></span></strong> <span>19</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="degree"></span></strong> <span><strong><span data-i18n="undergraduate"></span></span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="email"></span></strong> <span>xhl566@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="age"></span></strong> <span id="age" data-birthday="2005-06-06"></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="degree"></span></strong> <span data-i18n="degreeValue"></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="email"></span></strong> <span><a href="mailto:205637794@qq.com">205637794@qq.com</a></span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong><span data-i18n="freelance"></span></strong> <span><span data-i18n="available"></span></span></li>
                 </ul>
               </div>
@@ -241,21 +234,21 @@
             <div class="progress">
               <span class="skill"><span>C</span> <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="90"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
             <div class="progress">
               <span class="skill"><span>Java</span> <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="90"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
             <div class="progress">
               <span class="skill"><span>Live Server</span> <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="90"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
@@ -266,21 +259,21 @@
             <div class="progress">
               <span class="skill"><span>Linux</span> <i class="val">80%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
             <div class="progress">
               <span class="skill"><span>HTML</span> <i class="val">70%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="70"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
             <div class="progress">
               <span class="skill"><span>CSS</span> <i class="val">55%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="55"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
@@ -288,7 +281,7 @@
             <div class="progress">
               <span class="skill"><span>Docker</span> <i class="val">55%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="55"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
@@ -329,14 +322,14 @@
             <h3 class="resume-title"><span data-i18n="education"></span></h3>
             <div class="resume-item">
               <h4><span data-i18n="education2"></span></h4>
-              <h5>2026-2027</h5>
+              <h5>2026 – 2027</h5>
               <p><em><span data-i18n="uom"></span></em></p>
               <p><span data-i18n="mit"></span></p>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
               <h4><span data-i18n="education1"></span></h4>
-              <h5>2023-2025</h5>
+              <h5>2023 – 2026</h5>
               <p><em><span data-i18n="uom"></span></em></p>
               <p><span data-i18n="bsci"></span></p>
             </div><!-- Edn Resume Item -->
@@ -399,7 +392,7 @@
             <!-- Open Source Project 1: Python Web Crawler -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Open-Source">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/opensource-1.jpg" class="img-fluid" alt="">
+                <img src="assets/img/portfolio/opensource-1.jpg" class="img-fluid" alt="VCT matches to iCal — Python web crawler" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Crawler</h4>
                   <p>Python Web Crawler</p>
@@ -412,7 +405,7 @@
             <!-- Course Projects 1: EODP machine learning-->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Course">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/course-1.jpg" class="img-fluid" alt="">
+                <img src="assets/img/portfolio/course-1.jpg" class="img-fluid" alt="Online bookstore analysis — machine learning course project" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Machine Learning</h4>
                   <p>Online Bookstore Analysis</p>
@@ -422,23 +415,10 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <!-- Book 1 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Book 1</h4>
-                  <p>book1简介</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Book 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
             <!-- Course Project 2: Database System -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Course">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/course-2.jpg" class="img-fluid" alt="">
+                <img src="assets/img/portfolio/course-2.jpg" class="img-fluid" alt="OGRE — database systems course project" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Database System</h4>
                   <p>OGRE: Open Generative-AI Responsible Environment</p>
@@ -451,7 +431,7 @@
             <!-- Course Project 3: OOP Java -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Course">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/course-3.jpg" class="img-fluid" alt="">
+                <img src="assets/img/portfolio/course-3.jpg" class="img-fluid" alt="Shadow Taxi — Java game" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Object-Oriented Programming</h4>
                   <p>Shadow Taxi</p>
@@ -464,7 +444,7 @@
             <!-- Work 1: CBA job simulation -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Work">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/work-1.jpg" class="img-fluid" alt="">
+                <img src="assets/img/portfolio/work-1.jpg" class="img-fluid" alt="Commonwealth Bank job simulation certificate" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Job simulation</h4>
                   <p>CommonwealthBank</p>
@@ -473,6 +453,9 @@
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
+
+          </div>
+
         </div>
 
       </div>
@@ -484,7 +467,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2><span data-i18n="server"></span></h2>
+        <h2><span data-i18n="services"></span></h2>
         <p><span data-i18n="extract4"></span></p>
       </div><!-- End Section Title -->
 
@@ -560,126 +543,13 @@
     </section>
     <!-- /Services Section -->
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2><span data-i18n="testimonials"></span></h2>
-        <p><span data-i18n="extract8"></span></p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span><span data-i18n="testimonial1"></span></span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Lachlan Andrew</h3>
-                <h4><span data-i18n="testimonialor1"></span></h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-i18n="testimonial2"></span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4><span data-i18n="testimonialor2"></span></h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-i18n="testimonial3"></span>
-                </span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4><span data-i18n="testimonialor3"></span></h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-i18n="testimonial4"></span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>YuBo Wang</h3>
-                <h4><span data-i18n="testimonialor4"></span></h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span style="white-space: pre-line;" data-i18n="testimonial5"></span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3></h3>
-                <h4></h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2><span data-i18n="contact"></span></h2>
-        <p><spand data-i18n="extract9"></span></p>
+        <p><span data-i18n="extract9"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -709,19 +579,20 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3><span data-i18n="emailme"></span></h3>
-                  <p>205637794@qq.com</p>
+                  <p><a href="mailto:205637794@qq.com">205637794@qq.com</a><br><a href="mailto:xhl566@gmail.com">xhl566@gmail.com</a></p>
                 </div>
               </div><!-- End Info Item -->
 
+              <!-- Google Maps hidden for now (unreachable in mainland China)
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12583.84243997894!2d144.961158!3d-37.807169!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642c2f1b1f003:0x22f0924c7d685522!2s500%20Elizabeth%20St,%20Melbourne%20VIC%203000,%20Australia!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" 
-                width="450" 
-                height="300" 
-                style="border:0;" 
+                title="Map: 500 Elizabeth Street, Melbourne"
+                style="border:0; width:100%; height:300px;"
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+              -->
 
             </div>
           </div>
@@ -756,12 +627,11 @@
                 </div>
           
                 <input type="hidden" name="_subject" value="New Contact Form Submission">
-                <input type="hidden" name="_redirect" value="thank-you.html">
           
                 <div class="col-md-12 text-center">
-                  <div class="loading" style="display: none;"><span data-i18n="loading"></span></div>
-                  <div class="error-message" style="display: none;"><span data-i18n="error"></span></div>
-                  <div class="sent-message" style="display: none;"><span data-i18n="emailsent"></span></div>
+                  <div class="form-status loading" role="status" hidden><span data-i18n="loading"></span></div>
+                  <div class="form-status error-message" role="alert" hidden><span data-i18n="error"></span></div>
+                  <div class="form-status sent-message" role="status" hidden><span data-i18n="emailsent"></span></div>
           
                   <button type="submit" class="btn-send">
                     <span data-i18n="send"></span>
@@ -784,15 +654,25 @@
 
   </main>
 
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span id="year">2026</span> <strong class="px-1 sitename"><span data-i18n="name"></span></strong> <span data-i18n="rights"></span></p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -800,7 +680,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

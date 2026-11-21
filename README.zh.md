@@ -2,60 +2,57 @@
 
 [简体中文](README.zh.md) | [English](README.md)
 
+线上地址：https://adamchen566.github.io/jiashaochen.github.io/
+
 ![网站预览](assets/img/review.jpg)
 
-## 👋 欢迎 | Welcome
+## 关于
 
-欢迎来到我的个人网站！这里是我分享知识、经验和创意的空间。
+陈佳绍（Jiashao Chen）的个人网站：墨尔本大学信息技术硕士（人工智能方向）在读，软件工程师、独立开发者。
 
-## 🎯 关于我 | About Me
+## 功能
 
-我是一名热爱技术的开发者，专注于创造有价值的解决方案。
+- 中英文切换（首次访问跟随浏览器语言）
+- 响应式布局，适配手机、平板和桌面
+- 作品集按分类筛选，每个项目有单独的详情页
+- 简历下载
+- 联系表单（Formspree）
 
-## 🧩 功能特性
+## 技术栈
 
-- 🌐 多语言支持（中文/English）
-- 📱 响应式设计（适配移动端/平板/桌面）
-- 🎨 现代化极简风格UI
-- 📂 多分类作品集展示
-- 📄 动态简历下载功能
-- 📧 集成联系表单
-- 🌓 亮色/暗色主题切换
-- ⚡ 优化页面加载速度（Lighthouse评分90+）
+- 纯静态 HTML、CSS、JavaScript，没有构建步骤
+- Bootstrap 5，以及 `assets/vendor` 里的 AOS、GLightbox、Isotope、Swiper、Typed.js、PureCounter
+- 部署在 GitHub Pages
 
-## 🔧 技术栈
+## 目录
 
-- 前端: HTML5, CSS3, JavaScript
-- 框架: React/Vue.js
-- 工具: Git, VS Code
-- 其他: Markdown, Node.js
+| 路径 | 内容 |
+|---|---|
+| `index.html` | 唯一的主页面 |
+| `portfolio-details/` | 每个项目一个详情页 |
+| `assets/js/i18n.js` | 主页面的全部中英文文案 |
+| `assets/js/main.js` | 页面行为（菜单、打字效果、筛选、联系表单） |
+| `assets/css/main.css` | 样式 |
+| `assets/img/` | 图片 |
 
-## 📫 联系我
+## 本地预览
 
-- 📧 Email: 205637794@qq.com
-- 💼 LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/)
+直接用浏览器打开 `index.html`，或者起一个本地服务：
 
-<!-- ## 📝 最新博客 | Latest Posts
+```bash
+python -m http.server 8000
+```
 
-- [文章标题 1 | Post Title 1](link-to-post-1)
-- [文章标题 2 | Post Title 2](link-to-post-2)
-- [文章标题 3 | Post Title 3](link-to-post-3) 
--->
+## 项目
 
-## 🌟 精选项目
+- [VCT 赛程订阅日历](https://github.com/Adamchen566/VCT-matches-to-iCal)：抓取无畏契约赛程，生成可订阅的日历
+- [Shadow Taxi](https://github.com/Adamchen566/ShadowTaxi)：用 Java 写的出租车模拟游戏
 
-### 项目一 Match Subscription
-[使用Python爬虫获取比赛信息并转换至订阅日历格式](https://github.com/Adamchen566/VCT-matches-to-iCal)
+## 联系方式
 
-### 项目二 Shadow Taxi
-[简单的出租车模拟小游戏](https://github.com/JiashaoC566/ShadowTaxi)
+- 邮箱：205637794@qq.com · xhl566@gmail.com
+- LinkedIn：[陈佳绍](https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/)
 
+## 致谢
 
-
-## 🙏 致谢 | Acknowledgments
-
-感谢访问我的个人网站！如果您觉得内容有帮助，欢迎给个 Star ⭐️
-
-## 📄 许可证 | License
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详细信息
+基于 BootstrapMade 的 [iPortfolio](https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/) 模板，按其[许可](https://bootstrapmade.com/license/)使用。

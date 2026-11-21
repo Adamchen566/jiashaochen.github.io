@@ -2,59 +2,57 @@
 
 [简体中文](README.zh.md) | [English](README.md)
 
-![网站预览](assets/img/review.jpg)
+Live site: https://adamchen566.github.io/jiashaochen.github.io/
 
-## 👋 Welcome
+![Site preview](assets/img/review.jpg)
 
+## About
 
-Welcome to my personal website! This is where I share my knowledge, experience, and creativity.
+Personal website of Jiashao Chen (陈佳绍): Master of Information Technology (Artificial Intelligence) student at the University of Melbourne, software engineer and indie developer.
 
-## 🎯 About Me
+## Features
 
-I am a passionate developer focused on creating valuable solutions.
+- Chinese / English switch (follows the browser language on the first visit)
+- Responsive layout for phone, tablet and desktop
+- Portfolio with category filters and a detail page per project
+- Resume download
+- Contact form (Formspree)
 
-## 🧩 Features
+## Tech stack
 
-- 🌐 Multi-language support (Chinese/English)
-- 📱 Responsive design (mobile/tablet/desktop optimized)
-- 🎨 Modern and minimalist UI
-- 📂 Multi-category portfolio showcase
-- 📄 Dynamic resume download functionality
-- 📧 Integrated contact form
-- 🌓 Light/Dark theme toggle
-- ⚡ Optimized page load speed (Lighthouse score 90+)
+- Static HTML, CSS and JavaScript, no build step
+- Bootstrap 5, with AOS, GLightbox, Isotope, Swiper, Typed.js and PureCounter in `assets/vendor`
+- Hosted on GitHub Pages
 
-## 🔧 Tech Stack
+## Structure
 
-- Frontend: HTML5, CSS3, JavaScript
-- Framework: React/Vue.js
-- Tools: Git, VS Code
-- Others: Markdown, Node.js
+| Path | Contents |
+|---|---|
+| `index.html` | The single main page |
+| `portfolio-details/` | One page per project |
+| `assets/js/i18n.js` | All Chinese and English text of the main page |
+| `assets/js/main.js` | Page behaviour (menu, typing effect, filters, contact form) |
+| `assets/css/main.css` | Styles |
+| `assets/img/` | Images |
 
-## 📫 Contact Me
+## Run locally
 
-- 📧 Email: 205637794@qq.com
-- 💼 LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/)
+Open `index.html` in a browser, or serve the folder:
 
-<!-- ## 📝 最新博客 | Latest Posts
+```bash
+python -m http.server 8000
+```
 
-- [文章标题 1 | Post Title 1](link-to-post-1)
-- [文章标题 2 | Post Title 2](link-to-post-2)
-- [文章标题 3 | Post Title 3](link-to-post-3) 
--->
+## Projects
 
-## 🌟 Projects
+- [VCT matches to iCal](https://github.com/Adamchen566/VCT-matches-to-iCal): crawls Valorant match schedules and publishes a subscription calendar
+- [Shadow Taxi](https://github.com/Adamchen566/ShadowTaxi): a taxi simulation game in Java
 
-### Project 1 Match Subscription
-[Use Python crawler to get match information and convert to subscription calendar format](https://github.com/Adamchen566/VCT-matches-to-iCal)
+## Contact
 
-### Project 2 Shadow Taxi
-[Simple taxi simulation game](https://github.com/JiashaoC566/ShadowTaxi)
+- Email: 205637794@qq.com · xhl566@gmail.com
+- LinkedIn: [Jiashao Chen](https://www.linkedin.com/in/%E4%BD%B3%E7%BB%8D-%E9%99%88-5950ba347/)
 
-## 🙏 Acknowledgments
+## Credits
 
-Thank you for visiting my personal website! If you find the content helpful, feel free to give it a Star ⭐️
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+Built on the [iPortfolio](https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/) template by BootstrapMade, used under its [license](https://bootstrapmade.com/license/).
