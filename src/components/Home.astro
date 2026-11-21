@@ -4,6 +4,7 @@ import zh from '../i18n/zh.json';
 import en from '../i18n/en.json';
 import { asset, makeLink } from '../lib/paths';
 import Books from './Books.astro';
+import WechatQr from './WechatQr.astro';
 
 interface Props {
   lang: 'zh' | 'en';
@@ -59,7 +60,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
                 </ul>
                 <div class="product-actions">
                   <a href={link('products/mianyu/')} class="btn-product btn-product-primary">{t.learnMore}</a>
-                  <a href={asset('assets/img/portfolio/wechat.jpg')} class="btn-product glightbox">{t.joinBeta}</a>
+                  <a href={asset('assets/img/wechat-qr.png')} class="btn-product glightbox">{t.joinBeta}</a>
                 </div>
               </div>
             </article>
@@ -85,7 +86,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
                   <li>{t.lijieF3}</li>
                 </ul>
                 <div class="product-actions">
-                  <a href={asset('assets/img/portfolio/wechat.jpg')} class="btn-product glightbox">{t.joinWaitlist}</a>
+                  <a href={asset('assets/img/wechat-qr.png')} class="btn-product glightbox">{t.joinWaitlist}</a>
                 </div>
               </div>
             </article>
@@ -487,8 +488,8 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
           <div class="col-lg-5">
             <div class="wechat-card text-center" data-aos="fade-up" data-aos-delay="200">
               <h3><i class="bi bi-wechat"></i> {t.wechatScan}</h3>
-              <a href={asset('assets/img/portfolio/wechat.jpg')} class="glightbox"><img src={asset('assets/img/portfolio/wechat.jpg')} alt="WeChat QR code" loading="lazy"></a>
-              <p>{t.wechatNote}</p>
+              <a href={asset('assets/img/wechat-qr.png')} class="glightbox" title={t.wechatEnlarge}><WechatQr label={t.wechatScan} /></a>
+              <p>{t.wechatNote} {t.wechatEnlarge}</p>
               <a class="download resume-link" href={resumeUrl} download>{t.downloadresume}</a>
             </div>
           </div>

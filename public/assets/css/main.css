@@ -1711,10 +1711,13 @@ section,
   color: #07c160;
 }
 
-.contact .wechat-card img {
+/* The code has no background of its own: it takes the card's colour and draws in the text colour */
+.contact .wechat-card .wechat-qr {
+  display: block;
   width: 100%;
-  max-width: 240px;
-  border-radius: 8px;
+  max-width: 220px;
+  margin: 0 auto;
+  fill: var(--heading-color);
 }
 
 .contact .wechat-card p {
@@ -1936,10 +1939,6 @@ section,
 :root[data-theme="dark"] .services .service-item .icon i,
 :root[data-theme="dark"] .services .service-item:hover .icon i {
   color: var(--primary);
-}
-
-:root[data-theme="dark"] .contact .wechat-card img {
-  background: #ffffff;
 }
 
 /* Status badges use the semantic colours */

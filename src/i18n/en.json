@@ -121,5 +121,6 @@
   "booksIntro": "Books I have read. When a line is worth keeping, it sits under the title.",
   "booksShelf": "Shelf",
   "booksAll": "All books",
-  "booksCount": "{n} books"
+  "booksCount": "{n} books",
+  "wechatEnlarge": "If it does not scan, tap the code to enlarge it."
 }

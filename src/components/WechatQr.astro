@@ -1,0 +1,15 @@
+---
+// The WeChat QR code drawn as SVG, so its colour follows the theme and it has no background of its own.
+import { wechatQr } from '../data/wechat-qr';
+
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+// Two modules of empty space on every side keep the code readable against the card.
+const margin = 2;
+const box = wechatQr.size + margin * 2;
+---
+<svg class="wechat-qr" viewBox={`${-margin} ${-margin} ${box} ${box}`} role="img" aria-label={label} shape-rendering="crispEdges">
+  <path d={wechatQr.path} />
+</svg>
