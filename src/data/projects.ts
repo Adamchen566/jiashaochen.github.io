@@ -44,17 +44,166 @@ export const projects: Project[] = [
   {
     slug: 'vct-calendar',
     title: { zh: 'VCT 赛程订阅日历', en: 'VCT Matches to iCal' },
-    category: { zh: '开源项目 · Python 爬虫', en: 'Open source · Python web crawler' },
+    category: { zh: '开源项目 · Python 爬虫和数据分析', en: 'Open source · Python crawler and data analysis' },
     audience: { zh: '无畏契约观赛玩家', en: 'Valorant esports viewers' },
     date: { zh: '2024 年 3 月起，持续更新', en: 'Since March 2024, still maintained' },
     link: {
       label: { zh: 'GitHub 仓库', en: 'GitHub repository' },
       href: 'https://github.com/Adamchen566/VCT-matches-to-iCal',
     },
-    images: ['opensource-1.jpg', 'opensource-1.1.jpg', 'opensource-1.2.jpg'],
+    note: {
+      zh: '订阅页面 adamchen566.github.io/VCT-matches-to-iCal，数据分析在同一站点的 stats.html',
+      en: 'Subscribe at adamchen566.github.io/VCT-matches-to-iCal; the analysis is at stats.html on the same site',
+    },
+    images: ['vct-stats.png', 'vct-season.png', 'opensource-1.jpg', 'opensource-1.1.jpg', 'opensource-1.2.jpg'],
     brief: {
-      zh: '用 Python 抓取 VLR.gg 上的无畏契约比赛信息，包括赛事名称、比赛时间、队伍和比分，整理排序后生成 iCal（.ics）日历文件，可以在日历应用里订阅。GitHub Actions 每天自动刷新一次，订阅之后不用手动上传，赛程会自己更新。项目还带一个桌面查看器，有表格、卡片和热力图三种视图。',
-      en: 'A Python web scraper that extracts Valorant match information from VLR.gg, including event names, match dates, teams and scores. The data is processed, sorted and converted into an iCal (.ics) file for calendar subscription. A GitHub Actions workflow refreshes the calendar every day, so a subscribed calendar stays up to date without any manual upload. The project also ships a desktop viewer with table, card and heatmap views.',
+      zh: '把无畏契约职业赛（VCT）的赛程和比分做成可以订阅的日历。数据来自 vlr.gg，GitHub Actions 自动更新：自动发现进行中和即将开始的一级赛事，平时每天更新，有比赛时每小时更新；可以订阅全部赛事，也可以只订阅某个赛区或某支战队。在此基础上，我把 2021 到 2026 年全部国际赛、联赛和资格赛的比赛页面整理成一份明细数据集，并做了一个数据分析页面，按赛季看地图、特工、阵容、选手、战队和经济。',
+      en: 'Valorant Champions Tour schedules and scores as calendars you can subscribe to. The data comes from vlr.gg and GitHub Actions keeps it current: it finds ongoing and upcoming tier-1 events by itself and refreshes daily, or hourly while matches are on. You can subscribe to everything, one region or one team. On top of that I turned every international, league and qualifier match page from 2021 to 2026 into a detailed dataset, with an analysis page for maps, agents, compositions, players, teams and economy by season.',
+    },
+    detail: {
+      stats: [
+        {
+          value: { zh: '2184', en: '2,184' },
+          unit: { zh: '场比赛', en: 'matches' },
+          label: { zh: '2021 到 2026 年整理进数据集的比赛，共 5536 张图、11.8 万个回合', en: 'Matches from 2021 to 2026 in the dataset: 5,536 maps and 117,682 rounds' },
+        },
+        {
+          value: { zh: '1', en: '1' },
+          unit: { zh: '小时', en: 'hour' },
+          label: { zh: '比赛日的更新间隔，比分和改期一小时内进日历', en: 'Update interval on match days; scores and reschedules reach calendars within the hour' },
+        },
+        {
+          value: { zh: '68', en: '68' },
+          unit: { zh: '份日历', en: 'calendars' },
+          label: { zh: '可订阅的日历：全部赛事、5 个赛区和 62 支战队各一份，另有 55 届往年赛事的归档', en: 'Calendars to subscribe to: all events, 5 regions and 62 teams, plus 55 archived past events' },
+        },
+        {
+          value: { zh: '76', en: '76' },
+          unit: { zh: '个', en: 'tests' },
+          label: { zh: '自动化测试，解析器用真实页面样本测试', en: 'Automated tests; the parsers are tested on real page samples' },
+        },
+      ],
+      overview: [
+        {
+          title: { zh: '订阅日历', en: 'Subscription calendars' },
+          rows: [
+            {
+              name: { zh: '自动跟踪', en: 'Self-updating' },
+              text: {
+                zh: '每次运行读取 vlr.gg 的赛事列表，自动跟踪四大赛区的 Kickoff、Stage 1、Stage 2 和 Masters、Champions，新赛季不用改配置。赛事结束 7 天后自动归档。',
+                en: 'Each run reads vlr.gg’s event list and tracks Kickoff, Stage 1 and Stage 2 in the four regions plus Masters and Champions, so a new season needs no configuration. Events are archived seven days after they end.',
+              },
+            },
+            {
+              name: { zh: '按需订阅', en: 'Pick what you follow' },
+              text: {
+                zh: '全部赛事一份日历，每个赛区、每支战队各一份。标题赛前是「A vs B (Bo3)」，有比分后变成「A 2:1 B」，可以关掉比分避免剧透。',
+                en: 'One calendar for everything, plus one per region and per team. Titles read “A vs B (Bo3)” before a match and “A 2:1 B” after it; scores can be turned off to avoid spoilers.',
+              },
+            },
+            {
+              name: { zh: '不出错', en: 'Safe updates' },
+              text: {
+                zh: '抓到的场次比上次少时拒绝覆盖；每次先解析一个已结束赛事作为探针，分辨「还没排赛程」和「网站改版」；更新失败自动开 Issue 告警。',
+                en: 'A scrape with fewer matches than last time is refused; each run first parses a finished event as a canary to tell “no schedule yet” from “the site changed”; failed runs open an issue.',
+              },
+            },
+            {
+              name: { zh: '订阅页面', en: 'Subscription page' },
+              text: {
+                zh: '一个页面列出全部订阅链接，休赛期显示上一届赛事的比分，「赛季回顾」用时间轴展示每届赛事，可以用表格、卡片或热力图看赛果。',
+                en: 'One page lists every subscription link, shows the last event’s scores between seasons, and has a season review timeline with results as a table, cards or a heatmap.',
+              },
+            },
+          ],
+        },
+        {
+          title: { zh: '比赛数据和分析', en: 'Match data and analysis' },
+          intro: {
+            zh: '下面是从数据集里得到的几个结论，数据分析页面上可以按赛季查看。',
+            en: 'A few findings from the dataset; the analysis page shows them for any season.',
+          },
+          rows: [
+            {
+              name: { zh: '地图', en: 'Maps' },
+              text: {
+                zh: 'Ascent 连续五个赛季是最偏防守或第二偏的图，进攻方只赢 47% 的回合；自己选的图平均胜率 53%，选图带来的优势很小。',
+                en: 'Ascent was the most or second-most defence-sided map in five straight seasons, with attackers winning 47% of rounds; teams win 53% of their own map picks, a small edge.',
+              },
+            },
+            {
+              name: { zh: '特工', en: 'Agents' },
+              text: {
+                zh: 'Omen 2024 到 2026 年每年出场率约 64%；2026 年 Neon 的出场率上升 34 个百分点。常用特工的胜率都在 49% 到 52% 之间。',
+                en: 'Omen was picked in about 64% of team-maps every year from 2024 to 2026; Neon rose 34 percentage points in 2026. Common agents all win between 49% and 52%.',
+              },
+            },
+            {
+              name: { zh: '阵容', en: 'Compositions' },
+              text: {
+                zh: '打了 3 次以上的不同阵容，从 2021 年的 63 套增加到 2026 年的 295 套。',
+                en: 'Distinct compositions played three or more times grew from 63 in 2021 to 295 in 2026.',
+              },
+            },
+            {
+              name: { zh: '选手和经济', en: 'Players and economy' },
+              text: {
+                zh: '选手排行可以按评分、ACS、KAST、首杀、残局排序，并分进攻和防守；经济上，全甲打经济局赢 81%，半甲打全甲只赢 35%。',
+                en: 'Player rankings sort by rating, ACS, KAST, first kills and clutches, split by side; on economy, full buys beat eco rounds 81% of the time and half buys beat full buys only 35%.',
+              },
+            },
+          ],
+        },
+      ],
+      tech: {
+        title: { zh: '技术细节：怎么做出来的', en: 'Technical details: how it was built' },
+        intro: {
+          zh: '全部用 Python 写，没有服务器：GitHub Actions 负责定时运行，GitHub Pages 负责发布。',
+          en: 'All Python and no server: GitHub Actions runs it on a schedule and GitHub Pages publishes the results.',
+        },
+        steps: [
+          {
+            name: { zh: '抓取和解析', en: 'Crawling and parsing' },
+            text: {
+              zh: '用 requests 和 BeautifulSoup 解析 vlr.gg 的赛事、比赛和详情页，处理网站把哈瓦那时间标成 UTC 的问题。',
+              en: 'requests and BeautifulSoup parse vlr.gg’s event, match and detail pages, including the site’s Havana-time timestamps labelled as UTC.',
+            },
+          },
+          {
+            name: { zh: '稳定更新', en: 'Stable updates' },
+            text: {
+              zh: '每场比赛用固定 UID，改期和比分变化只增加序号，手机日历不会出现重复事件。',
+              en: 'Each match keeps a fixed UID and only its sequence number changes on updates, so phone calendars never show duplicates.',
+            },
+          },
+          {
+            name: { zh: '自动运行', en: 'Automation' },
+            text: {
+              zh: '三个工作流：每日更新、每小时检查是否有比赛、PR 和 main 上跑测试；失败自动开 Issue，成功后自动关闭。',
+              en: 'Three workflows: a daily update, an hourly check for live matches, and tests on pull requests and main; failures open an issue that closes itself after the next success.',
+            },
+          },
+          {
+            name: { zh: '数据集', en: 'Dataset' },
+            text: {
+              zh: '每场比赛下载概览、表现、经济三个页面，每秒一个请求并缓存，解析成比赛、禁选、地图、回合、选手五张表，再汇总成九张分析表。',
+              en: 'Three tabs per match (overview, performance, economy) are downloaded at one request a second and cached, parsed into five tables (matches, vetoes, maps, rounds, players), then summarised into nine analysis tables.',
+            },
+          },
+          {
+            name: { zh: '可视化', en: 'Visualisation' },
+            text: {
+              zh: '订阅页面和数据分析页面都是不依赖外部库的静态网页，配色用我自己的「琥珀夜色」设计系统，图表颜色在暗色背景上做过色盲和对比度校验。',
+              en: 'The subscription and analysis pages are static pages with no external libraries, styled with my own Amber Night design system; chart colours were checked for colour blindness and contrast on the dark background.',
+            },
+          },
+        ],
+        stack: ['Python', 'BeautifulSoup', 'icalendar', 'GitHub Actions', 'GitHub Pages', 'HTML / CSS / JavaScript'],
+        figure: {
+          image: 'vct-season.png',
+          caption: { zh: '订阅页面的「赛季回顾」：时间轴和选中赛事的赛果。点开看大图。', en: 'The season review on the subscription page (in Chinese): a timeline and the chosen event’s results. Click to enlarge.' },
+        },
+      },
     },
   },
   {
