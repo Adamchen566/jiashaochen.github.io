@@ -2050,15 +2050,21 @@ section,
   gap: 5px;
   margin: 0;
   padding: 28px 14px 0 14px;
-  min-width: max-content;
+  min-width: min-content;
   border-bottom: 10px solid var(--shelf-color);
+}
+
+/* Spines give up a little width before the shelf starts to scroll sideways */
+.bookshelf-row li {
+  flex: 0 1 54px;
+  min-width: 44px;
 }
 
 .spine {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
+  width: 100%;
   min-height: var(--spine-height);
   padding: 16px 0;
   border-radius: 3px 3px 0 0;

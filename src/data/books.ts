@@ -32,6 +32,24 @@ export const books: Book[] = [
     author: { zh: '唐纳德·诺曼', en: 'Donald Norman' },
   },
   {
+    slug: 'embedded-power',
+    title: '置身事内',
+    en: 'How China Works',
+    author: { zh: '兰小欢', en: 'Lan Xiaohuan' },
+  },
+  {
+    slug: 'principles-of-economics',
+    title: '经济学原理',
+    en: 'Principles of Economics',
+    author: { zh: '格里高利·曼昆', en: 'N. Gregory Mankiw' },
+  },
+  {
+    slug: 'poor-economics',
+    title: '贫穷的本质',
+    en: 'Poor Economics',
+    author: { zh: '阿比吉特·班纳吉、埃斯特·迪弗洛', en: 'Abhijit Banerjee, Esther Duflo' },
+  },
+  {
     slug: 'stories-of-your-life',
     title: '你一生的故事',
     en: 'Stories of Your Life and Others',
