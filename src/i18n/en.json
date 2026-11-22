@@ -65,7 +65,7 @@
   "mianyuF3": "Sleep timer from 5 to 240 minutes with a slow fade-out",
   "mianyuF4": "Saved mixes and account sync; bedtime stories are in production",
   "lijieName": "Lijie · strength training log",
-  "lijieStatus": "In design · beta planned for late 2026",
+  "lijieStatus": "In development · beta planned for late 2026",
   "lijiePitch": "A training log for people who lift: a plan before the session, less phone during it, visible progress after it.",
   "lijieStep1": "Plan",
   "lijieStep2": "Tick on lock screen",
@@ -122,5 +122,6 @@
   "booksShelf": "Shelf",
   "booksAll": "All books",
   "booksCount": "{n} books",
-  "wechatEnlarge": "If it does not scan, tap the code to enlarge it."
+  "wechatEnlarge": "If it does not scan, tap the code to enlarge it.",
+  "productsSite": "Product site (in Chinese): "
 }

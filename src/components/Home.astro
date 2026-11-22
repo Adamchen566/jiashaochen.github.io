@@ -6,6 +6,9 @@ import { asset, makeLink } from '../lib/paths';
 import Books from './Books.astro';
 import WechatQr from './WechatQr.astro';
 
+// Product pages live on the studio site; this site only shows a card for each product.
+const company = 'https://jiashao.tech';
+
 interface Props {
   lang: 'zh' | 'en';
 }
@@ -36,7 +39,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
 
       <div class="container section-title" data-aos="fade-up">
         <h2>{t.products}</h2>
-        <p>{t.productsIntro}</p>
+        <p>{t.productsIntro} {t.productsSite}<a href={`${company}/`}>jiashao.tech</a></p>
       </div>
 
       <div class="container">
@@ -45,7 +48,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
           <!-- Product 1: Mianyu (sleep sounds) -->
           <div class="col-xl-6" data-aos="fade-up" data-aos-delay="100">
             <article class="product-card h-100">
-              <a href={link('products/mianyu/')} class="product-media">
+              <a href={`${company}/mianyu/`} class="product-media">
                 <img src={asset('assets/img/products/mianyu/promo-01.jpg')} alt="眠屿 Mianyu" width="900" height="1200" loading="lazy">
               </a>
               <div class="product-body">
@@ -59,7 +62,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
                   <li>{t.mianyuF4}</li>
                 </ul>
                 <div class="product-actions">
-                  <a href={link('products/mianyu/')} class="btn-product btn-product-primary">{t.learnMore}</a>
+                  <a href={`${company}/mianyu/`} class="btn-product btn-product-primary">{t.learnMore}</a>
                   <a href={asset('assets/img/wechat-qr.png')} class="btn-product glightbox">{t.joinBeta}</a>
                 </div>
               </div>
@@ -86,6 +89,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
                   <li>{t.lijieF3}</li>
                 </ul>
                 <div class="product-actions">
+                  <a href={`${company}/lijie/`} class="btn-product">{t.learnMore}</a>
                   <a href={asset('assets/img/wechat-qr.png')} class="btn-product glightbox">{t.joinWaitlist}</a>
                 </div>
               </div>

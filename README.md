@@ -32,7 +32,7 @@ Personal website of Jiashao Chen (陈佳绍): Master of Information Technology (
 |---|---|
 | `src/i18n/zh.json`, `src/i18n/en.json` | All text of the home page |
 | `src/components/Home.astro` | Home page sections |
-| `src/components/MianyuDetail.astro` | Mianyu product page, both languages |
+| `astro.config.mjs` (`company`) | Product pages live on the studio site, https://jiashao.tech (repo `D:\zhiji-site`); old product URLs redirect there |
 | `src/data/projects.ts` | Project detail pages: one entry per project, both languages |
 | `src/data/books.ts` | Book list |
 | `src/layouts/Base.astro` | Head, sidebar, footer, scripts |

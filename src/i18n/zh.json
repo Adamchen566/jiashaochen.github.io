@@ -65,7 +65,7 @@
   "mianyuF3": "5 到 240 分钟睡眠定时，结束时声音慢慢淡出",
   "mianyuF4": "收藏常用组合，账号同步；睡前故事节目制作中",
   "lijieName": "力阶 · 力量训练记录 App",
-  "lijieStatus": "设计中 · 计划 2026 年底内测",
+  "lijieStatus": "开发中 · 计划 2026 年底内测",
   "lijiePitch": "给练力量的人用的训练记录：练之前有计划，练的时候少碰手机，练完看得到进步。",
   "lijieStep1": "建计划",
   "lijieStep2": "锁屏打勾",
@@ -122,5 +122,6 @@
   "booksShelf": "书架",
   "booksAll": "全部书目",
   "booksCount": "共 {n} 本",
-  "wechatEnlarge": "扫不出来的话，点一下二维码放大。"
+  "wechatEnlarge": "扫不出来的话，点一下二维码放大。",
+  "productsSite": "产品官网："
 }

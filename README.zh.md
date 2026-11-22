@@ -32,7 +32,7 @@
 |---|---|
 | `src/i18n/zh.json`、`src/i18n/en.json` | 首页的全部文字 |
 | `src/components/Home.astro` | 首页各个区块 |
-| `src/components/MianyuDetail.astro` | 眠屿产品页，中英文都在里面 |
+| `astro.config.mjs`（`company`） | 产品页已搬到知集软件官网 https://jiashao.tech（仓库 `D:\zhiji-site`），旧的产品页地址会跳转过去 |
 | `src/data/projects.ts` | 项目详情页：每个项目一条，中英文都在里面 |
 | `src/data/books.ts` | 书单 |
 | `src/layouts/Base.astro` | 页头、侧栏、页脚、脚本 |
