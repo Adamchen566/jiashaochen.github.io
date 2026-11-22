@@ -16,6 +16,7 @@ const ui = {
 }[lang];
 const sep = lang === 'zh' ? '：' : ': ';
 const title = project.title[lang];
+const detail = project.detail;
 const linkHref = project.link && (project.link.href.startsWith('http') ? project.link.href : asset(project.link.href));
 ---
 <Base lang={lang} path={`projects/${project.slug}/`} title={`${title} | ${ui.site}`} description={project.brief[lang].slice(0, 150)} swiper section="portfolio">
@@ -82,6 +83,57 @@ const linkHref = project.link && (project.link.href.startsWith('http') ? project
         </div>
 
       </div>
+
+      {detail && (
+        <div class="project-more">
+
+          <ul class="project-stats" data-aos="fade-up">
+            {detail.stats.map(stat => (
+              <li>
+                <p class="stat-value">{stat.value[lang]} <small>{stat.unit[lang]}</small></p>
+                <p class="stat-label">{stat.label[lang]}</p>
+              </li>
+            ))}
+          </ul>
+
+          {detail.overview.map(block => (
+            <div class="project-block" data-aos="fade-up">
+              <h2>{block.title[lang]}</h2>
+              {block.intro && <p class="project-block-intro">{block.intro[lang]}</p>}
+              <dl class="project-spec">
+                {block.rows.map(row => <div><dt>{row.name[lang]}</dt><dd>{row.text[lang]}</dd></div>)}
+              </dl>
+            </div>
+          ))}
+
+          <div class="project-block project-tech" id="tech" data-aos="fade-up">
+            <h2>{detail.tech.title[lang]}</h2>
+            <p class="project-block-intro">{detail.tech.intro[lang]}</p>
+            <div class="row gy-4">
+              <div class={detail.tech.figure ? 'col-lg-7' : 'col-12'}>
+                <ol class="project-steps">
+                  {detail.tech.steps.map(step => <li><strong>{step.name[lang]}</strong><span>{step.text[lang]}</span></li>)}
+                </ol>
+                <ul class="tag-list">{detail.tech.stack.map(tag => <li>{tag}</li>)}</ul>
+              </div>
+              {detail.tech.figure && (
+                <div class="col-lg-5">
+                  <figure class="project-figure">
+                    <a href={asset(`assets/img/portfolio/${detail.tech.figure.image}`)} class="glightbox" title={detail.tech.figure.caption[lang]}>
+                      <img src={asset(`assets/img/portfolio/${detail.tech.figure.image}`)} alt={detail.tech.figure.caption[lang]} class="img-fluid" loading="lazy">
+                    </a>
+                    <figcaption>{detail.tech.figure.caption[lang]}</figcaption>
+                  </figure>
+                </div>
+              )}
+            </div>
+            {project.link && !project.link.lightbox && (
+              <p class="project-repo"><a href={linkHref} target="_blank" rel="noopener"><i class="bi bi-github"></i> {project.link.label[lang]}</a></p>
+            )}
+          </div>
+
+        </div>
+      )}
 
     </div>
 

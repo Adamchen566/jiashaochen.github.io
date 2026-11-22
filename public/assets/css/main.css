@@ -2205,3 +2205,178 @@ section,
     columns: 1;
   }
 }
+
+/*--------------------------------------------------------------
+# Project page: longer write-up (stats, tables, steps)
+--------------------------------------------------------------*/
+.project-more {
+  margin-top: 48px;
+}
+
+.project-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.project-stats li {
+  padding: 18px 20px;
+  background: var(--surface-color);
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.06);
+}
+
+.project-stats .stat-value {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--heading-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-stats .stat-value small {
+  font-size: 14px;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.project-stats .stat-label {
+  margin: 6px 0 0 0;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.project-block {
+  padding-top: 40px;
+}
+
+.project-block h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.project-block-intro {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.project-tech {
+  margin-top: 48px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.project-spec {
+  margin: 16px 0 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  font-size: 15px;
+}
+
+.project-spec div {
+  display: grid;
+  grid-template-columns: 9em minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.project-spec dt {
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.project-spec dd {
+  margin: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.project-steps {
+  margin: 16px 0 20px 0;
+  padding-left: 1.4em;
+  font-size: 15px;
+}
+
+.project-steps li {
+  padding: 6px 0 6px 4px;
+}
+
+.project-steps li::marker {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.project-steps strong {
+  display: block;
+  color: var(--heading-color);
+}
+
+.project-steps span {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.project-figure {
+  margin: 16px 0 0 0;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project-figure img {
+  width: 100%;
+}
+
+.project-figure figcaption {
+  padding: 8px 14px;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.project-repo {
+  margin: 24px 0 0 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.project-repo i {
+  margin-right: 6px;
+}
+
+@media (max-width: 991px) {
+  .project-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .project-stats {
+    gap: 10px;
+  }
+
+  .project-stats li {
+    padding: 14px;
+  }
+
+  .project-stats .stat-value {
+    font-size: 24px;
+  }
+
+  .project-spec div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}
+
+:root[data-theme="dark"] .project-stats li {
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+:root[data-theme="dark"] .project-figure {
+  border-color: var(--border-subtle);
+  border-radius: 14px;
+}
