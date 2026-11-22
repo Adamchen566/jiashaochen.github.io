@@ -9,11 +9,30 @@ import WechatQr from './WechatQr.astro';
 // Product pages live on the studio site; this site only shows a card for each product.
 const company = 'https://jiashao.tech';
 
+// Public repositories on GitHub, in the order shown (Shadow Taxi stays with the course projects below). Names, status and descriptions are in src/i18n.
+const github = 'https://github.com/Adamchen566';
+const repos: { key: string; repo: string; icon: string; badge: string; tags: string[]; details?: string; extra?: { label: string; href: string } }[] = [
+  {
+    key: 'vct',
+    repo: 'VCT-matches-to-iCal',
+    icon: 'bi-calendar-event',
+    badge: 'status-live',
+    tags: ['Python', 'GitHub Actions', 'iCal'],
+    details: 'projects/vct-calendar/',
+    extra: { label: 'vctSubscribe', href: 'https://adamchen566.github.io/VCT-matches-to-iCal/' },
+  },
+  { key: 'mahjong', repo: 'mahjong_AI', icon: 'bi-grid-3x3-gap', badge: 'status-live', tags: ['Python', 'PyTorch', 'ONNX', 'FastAPI', 'React'] },
+  { key: 'avalon', repo: 'GameMaster', icon: 'bi-people', badge: 'status-beta', tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL'] },
+  { key: 'site', repo: 'jiashaochen.github.io', icon: 'bi-globe2', badge: 'status-live', tags: ['Astro', 'CSS', 'GitHub Actions'] },
+];
+
 interface Props {
   lang: 'zh' | 'en';
 }
 const { lang } = Astro.props;
 const t = lang === 'zh' ? zh : en;
+// The same text, looked up by a computed key (for the repository cards).
+const text = t as Record<string, any>;
 const link = makeLink(lang);
 const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
 ---
@@ -113,47 +132,26 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
 
         <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <article class="project-card h-100">
-              <div class="project-icon"><i class="bi bi-calendar-event"></i></div>
-              <span class="status-badge status-live">{t.vctStatus}</span>
-              <h3>{t.vctName}</h3>
-              <p>{t.vctDesc}</p>
-              <ul class="tag-list"><li>Python</li><li>GitHub Actions</li><li>iCal</li></ul>
-              <div class="project-links">
-                <a href={link('projects/vct-calendar/')}>{t.details}</a>
-                <a href="https://github.com/Adamchen566/VCT-matches-to-iCal" target="_blank" rel="noopener">GitHub</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <article class="project-card h-100">
-              <div class="project-icon"><i class="bi bi-people"></i></div>
-              <span class="status-badge status-beta">{t.avalonStatus}</span>
-              <h3>{t.avalonName}</h3>
-              <p>{t.avalonDesc}</p>
-              <ul class="tag-list"><li>React</li><li>TypeScript</li><li>FastAPI</li><li>PostgreSQL</li><li>WebSocket</li></ul>
-              <div class="project-links">
-                <a href="https://github.com/Adamchen566/GameMaster" target="_blank" rel="noopener">GitHub</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <article class="project-card h-100">
-              <div class="project-icon"><i class="bi bi-grid-3x3-gap"></i></div>
-              <span class="status-badge status-done">{t.mahjongStatus}</span>
-              <h3>{t.mahjongName}</h3>
-              <p>{t.mahjongDesc}</p>
-              <ul class="tag-list"><li>Python</li></ul>
-              <div class="project-links">
-                <a href="https://github.com/Adamchen566/mahjong_AI" target="_blank" rel="noopener">GitHub</a>
-              </div>
-            </article>
-          </div>
+          {repos.map((repo, index) => (
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay={100 + (index % 2) * 100}>
+              <article class="project-card h-100">
+                <div class="project-icon"><i class={`bi ${repo.icon}`}></i></div>
+                <span class={`status-badge ${repo.badge}`}>{text[`${repo.key}Status`]}</span>
+                <h3>{text[`${repo.key}Name`]}</h3>
+                <p>{text[`${repo.key}Desc`]}</p>
+                <ul class="tag-list">{repo.tags.map(tag => <li>{tag}</li>)}</ul>
+                <div class="project-links">
+                  {repo.details && <a href={link(repo.details)}>{t.details}</a>}
+                  {repo.extra && <a href={repo.extra.href} target="_blank" rel="noopener">{text[repo.extra.label]}</a>}
+                  <a href={`${github}/${repo.repo}`} target="_blank" rel="noopener">GitHub</a>
+                </div>
+              </article>
+            </div>
+          ))}
 
         </div>
+
+        <p class="github-all" data-aos="fade-up"><a href={github} target="_blank" rel="noopener"><i class="bi bi-github"></i> {t.githubAll}</a></p>
 
         <h3 class="more-projects-title" data-aos="fade-up">{t.moreProjects}</h3>
 
@@ -164,7 +162,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
             <!-- Course Projects 1: EODP machine learning-->
             <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
               <div class="portfolio-content h-100">
-                <img src={asset('assets/img/portfolio/thumbs/course-1.jpg')} class=\"img-fluid\" width=\"800\" height=\"600\" alt="Online bookstore analysis — machine learning course project" loading="lazy">
+                <img src={asset('assets/img/portfolio/thumbs/course-1.jpg')} class="img-fluid" width="800" height="600" alt="Online bookstore analysis — machine learning course project" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Machine Learning</h4>
                   <p>Online Bookstore Analysis</p>
@@ -177,7 +175,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
             <!-- Course Project 2: Database System -->
             <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
               <div class="portfolio-content h-100">
-                <img src={asset('assets/img/portfolio/thumbs/course-2.jpg')} class=\"img-fluid\" width=\"800\" height=\"600\" alt="OGRE — database systems course project" loading="lazy">
+                <img src={asset('assets/img/portfolio/thumbs/course-2.jpg')} class="img-fluid" width="800" height="600" alt="OGRE — database systems course project" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Database System</h4>
                   <p>OGRE: Open Generative-AI Responsible Environment</p>
@@ -190,7 +188,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
             <!-- Course Project 3: OOP Java -->
             <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Course">
               <div class="portfolio-content h-100">
-                <img src={asset('assets/img/portfolio/thumbs/course-3.jpg')} class=\"img-fluid\" width=\"800\" height=\"600\" alt="Shadow Taxi — Java game" loading="lazy">
+                <img src={asset('assets/img/portfolio/thumbs/course-3.jpg')} class="img-fluid" width="800" height="600" alt="Shadow Taxi — Java game" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Object-Oriented Programming</h4>
                   <p>Shadow Taxi</p>
@@ -203,7 +201,7 @@ const resumeUrl = asset(`assets/resume/Jiashao-Chen-Resume-${lang}.pdf`);
             <!-- Work 1: CBA job simulation -->
             <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-Work">
               <div class="portfolio-content h-100">
-                <img src={asset('assets/img/portfolio/thumbs/work-1.jpg')} class=\"img-fluid\" width=\"800\" height=\"600\" alt="Commonwealth Bank job simulation certificate" loading="lazy">
+                <img src={asset('assets/img/portfolio/thumbs/work-1.jpg')} class="img-fluid" width="800" height="600" alt="Commonwealth Bank job simulation certificate" loading="lazy">
                 <div class="portfolio-info">
                   <h4>Job simulation</h4>
                   <p>CommonwealthBank · {t.nicknameNote}</p>

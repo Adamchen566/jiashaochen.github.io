@@ -1646,6 +1646,16 @@ section,
   margin-bottom: 14px;
 }
 
+.portfolio .github-all {
+  margin: 24px 0 0 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.portfolio .github-all i {
+  margin-right: 6px;
+}
+
 .project-card .project-links {
   display: flex;
   gap: 16px;
